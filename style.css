@@ -207,9 +207,9 @@ nav a {
 .slogan {
   z-index: 999;
   position: absolute;
-  top: 15%;
+  top: 10%;
   padding: var(--space-md);
-  width: 70%;
+  width: 90%;
   color: #fff;
 }
 .slogan h1 {
@@ -266,6 +266,7 @@ nav a {
   text-align: center;
 }
 .feature .title {
+  margin-bottom: calc(var(--space-xl) * 1.5);
   font-size: var(--text-h2);
   color: var(--text-primary);
 }
@@ -586,6 +587,10 @@ nav a {
   }
   .hero p {
     font-size: 2.2rem;
+  }
+  .slogan {
+    width: 70%;
+    top: 15%;
   }
   /*=== intro ===*/
   .intro {
