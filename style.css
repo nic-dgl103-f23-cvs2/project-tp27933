@@ -338,7 +338,10 @@ nav a {
   background: #fff;
   border-radius: var(--border-radius);
 }
-
+.feature .feature-list {
+  flex: 1;
+  padding-bottom: var(--space-md);
+}
 .feature li img {
   margin: var(--space-lg) auto;
   height: 18rem;
@@ -349,6 +352,8 @@ nav a {
 }
 
 .feature li {
+  display: flex;
+  flex-direction: column;
   font-size: var(--text-body);
 }
 
@@ -356,7 +361,10 @@ nav a {
   font-size: var(--text-body);
   color: var(--text-content);
 }
-
+.feature .button-more {
+  color: var(--highline);
+  text-decoration: underline;
+}
 /* wave refer from https://css-generators.com/wavy-shapes/ */
 .box {
   height: 200px;
@@ -379,7 +387,14 @@ nav a {
   margin-top: var(--space-xl);
   text-align: center;
 }
-
+.call-to-action .action_btn {
+  display: inline-block;
+  margin-top: var(--space-md);
+  padding: var(--space-sm) var(--space-md);
+  color: #fff;
+  background: var(--neutral);
+  border-radius: var(--border-radius);
+}
 .call-to-action .img-wrapper {
   margin-top: var(--space-md);
   width: 100vw;
