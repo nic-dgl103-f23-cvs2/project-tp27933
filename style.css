@@ -16,7 +16,7 @@
   --neutral: #208c73;
   --highline: #1acda3;
   --text-primary: #2c2e2d;
-  --text-connect: #696b6a;
+  --text-content: #696b6a;
 
   --text-h2: 2.8rem;
   --text-h3: 2.4rem;
@@ -29,6 +29,7 @@
 * {
   box-sizing: border-box;
   margin: 0;
+  padding: 0;
 }
 html {
   line-height: 1.15; /* 1 */
@@ -102,7 +103,7 @@ a {
 .bottom-line {
   position: relative;
   display: inline-block;
-  margin-bottom: var(--space-sm);
+  margin-bottom: var(--space-lg);
 }
 .bottom-line::after {
   content: "";
@@ -229,6 +230,7 @@ nav a {
 }
 /*=== intro ===*/
 .intro {
+  margin-top: var(--space-lg);
   padding: var(--space-lg) 0;
   text-align: center;
 }
@@ -252,35 +254,65 @@ nav a {
 .intro p {
   line-height: 1.5;
   font-size: var(--text-body);
-  color: var(--text-connect);
+  color: var(--text-content);
 }
 
 /*=== feature ===*/
+.feature {
+  margin-top: var(--space-lg);
+  width: 100vw;
+  margin-inline-start: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+.feature .title {
+  font-size: var(--text-h2);
+  color: var(--text-primary);
+}
+.feature .content {
+  padding: var(--space-md);
+  background: #04473a;
+  font-size: var(--text-body);
+}
+
+.feature h3 {
+  text-align: center;
+  font-size: var(--text-h4);
+  color: var(--text-primary);
+}
 .feature img {
   display: block;
-  width: 46rem;
+}
+.feature .illustration {
   margin: 0 auto;
+  width: min(80%, 46rem);
 }
-
-.feature .content {
-  padding: var(--space-xl);
-  background: #04473a;
-  font-size: 2.2rem;
-}
-
-.feature ul {
-  display: grid;
+.feature > ul {
+  display: flex;
+  flex-wrap: wrap;
   gap: 2rem;
-  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
-  padding: 0;
 }
-
-.feature ul li {
-  padding: var(--space-lg);
+.feature > ul > li {
+  width: 100%;
+  flex-grow: 1;
+  padding: var(--space-md);
   background: #fff;
   border-radius: var(--border-radius);
 }
-
+.feature li img {
+  margin: var(--space-lg) auto;
+  height: 18rem;
+}
+.feature li:last-child img {
+  border-radius: calc(var(--border-radius) * 2);
+}
+.feature li {
+  font-size: var(--text-body);
+}
+.feature li p {
+  font-size: var(--text-body);
+  color: var(--text-content);
+}
 /* wave refer from https://css-generators.com/wavy-shapes/ */
 .box {
   height: 200px;
@@ -574,6 +606,10 @@ nav a {
   .intro .content {
     flex: 1;
   }
+  /*=== features ===*/
+  .feature > ul > li {
+    width: calc(50% - 2rem);
+  }
 }
 
 /* Large devices (desktops, 1024px and up) */
@@ -630,5 +666,12 @@ nav a {
     position: relative;
     width: 580px;
     height: 500px;
+  }
+  /*=== features ===*/
+  .feature .content {
+    padding: var(--space-xl);
+  }
+  .feature > ul > li {
+    width: 30%;
   }
 }
