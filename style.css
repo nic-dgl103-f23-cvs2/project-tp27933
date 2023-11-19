@@ -8,13 +8,14 @@
   --space-lg: calc(var(--space-base) * 3);
   --space-xl: calc(var(--space-base) * 4.5);
 
-  --border-radius: 8px;
+  --border-radius: 6px;
 
   /*==== color ====*/
   --primary: rgb(3, 59, 46);
-  --neutral: rgb(1, 22, 30) --highlight: #00aa84;
+  --neutral: rgb(1, 22, 30);
+  --highline: #00aa84;
 
-  --text-primary: #b3b5b4
+  --text-primary: #b3b5b4;
 }
 
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
@@ -32,7 +33,7 @@ html {
  * Remove the margin in all browsers.
  */
 
- body {
+body {
   margin: 0;
   font-size: 1.6rem;
   font-family: "Ubuntu", sans-serif;
@@ -42,7 +43,7 @@ html {
  * Render the `main` element consistently in IE.
  */
 
- main {
+main {
   display: block;
   padding: 0 var(--space-lg);
 }
@@ -50,7 +51,8 @@ html {
  * Remove the gray background on active links in IE 10.
  */
 
- a {
+a {
+  display: inline-block;
   background-color: transparent;
 }
 img {
@@ -73,10 +75,11 @@ textarea {
  * 1. Show the overflow in Edge.
  */
 
- button,
- input { /* 1 */
-   overflow: visible;
- }
+button,
+input {
+  /* 1 */
+  overflow: visible;
+}
 
 /*=== general ===*/
 
@@ -89,7 +92,7 @@ a {
 }
 
 .content {
-  color: var(--text-primary)
+  color: var(--text-primary);
 }
 
 /*=== nav ===*/
@@ -97,14 +100,15 @@ header {
   z-index: 99;
   position: absolute;
   top: 0;
-  padding: var(--space-md);
+  padding: var(--space-sm);
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
   color: #fff;
 }
-header nav,  header .social-media{
+header nav,
+header .social-media {
   display: none;
 }
 header nav {
@@ -119,8 +123,8 @@ header nav {
   margin-top: var(--space-lg);
 }
 header .logo {
-  width: 4.8rem;
-  height: 4.8rem;
+  width: 2.2rem;
+  height: 2.2rem;
 }
 
 header .icon-menu {
@@ -130,7 +134,7 @@ header .icon-menu {
 
 header .icon-menu .icon {
   color: #fff;
-  font-size: 4.8rem;
+  font-size: 2.2rem;
 }
 
 nav ul {
@@ -149,18 +153,21 @@ nav a {
 .hero-wrapper {
   position: relative;
   width: 100%;
-  height: 800px;
+  height: 700px;
   max-height: 90vh;
 }
 
 .hero {
   height: 100%;
 }
-
+.hero .hero-desktop {
+  display: none;
+}
 .hero img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
 }
 
 .hero .mask {
@@ -170,22 +177,38 @@ nav a {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to bottom,
-      rgb(1, 22, 30, 06),
-      rgba(3, 59, 46, 0.8))
+  background: linear-gradient(
+    to bottom,
+    rgb(1, 22, 30, 0.9),
+    rgb(1, 22, 30, 0.25),
+    rgba(3, 59, 46, 0.5)
+  );
 }
 
 .slogan {
   z-index: 999;
   position: absolute;
-  /* inset: 0; */
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  top: 15%;
+  padding: var(--space-md);
+  width: 100%;
   color: #fff;
 }
-
-
+.slogan h1 {
+  padding-bottom: var(--space-sm);
+  font-size: 1.8rem;
+}
+.slogan p {
+  line-height: 1.2;
+  font-size: 1.2rem;
+}
+.slogan a {
+  margin-top: var(--space-md);
+  padding: var(--space-sm) var(--space-md);
+  color: #fff;
+  font-size: 1.2rem;
+  border-radius: var(--border-radius);
+  background: var(--highline);
+}
 /*=== intro ===*/
 .intro {
   padding: var(--space-lg) 0;
@@ -210,14 +233,14 @@ nav a {
 
 .feature .content {
   padding: var(--space-xl);
-  background: #04473A;
+  background: #04473a;
   font-size: 2.2rem;
 }
 
 .feature ul {
   display: grid;
   gap: 2rem;
-  grid-template-columns: repeat(auto-fit, minmax(min(300px,100%), 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
   padding: 0;
 }
 
@@ -230,76 +253,23 @@ nav a {
 /* wave refer from https://css-generators.com/wavy-shapes/ */
 .box {
   height: 200px;
-  --mask:
-    radial-gradient(126.18px at 50% calc(100% - 171.00px), #000 99%, #0000 101%) calc(50% - 120px) 0/240px 100%,
-    radial-gradient(126.18px at 50% calc(100% + 111.00px), #0000 99%, #000 101%) 50% calc(100% - 60px)/240px 100% repeat-x;
+  --mask: radial-gradient(
+        126.18px at 50% calc(100% - 171px),
+        #000 99%,
+        #0000 101%
+      )
+      calc(50% - 120px) 0/240px 100%,
+    radial-gradient(126.18px at 50% calc(100% + 111px), #0000 99%, #000 101%)
+      50% calc(100% - 60px) / 240px 100% repeat-x;
   -webkit-mask: var(--mask);
   mask: var(--mask);
-  background: #04473A;
+  background: #04473a;
   border: none;
 }
 
 /*=== call-to-action ===*/
 .call-to-action img {
   border-radius: 65% 15%/ 15% 5% 20%;
-}
-
-/* Medium devices (vertical ipads, 768px and up) */
-@media only screen and (min-width: 768px) {
-
-  /*=== nav ===*/
-  nav ul {
-    padding: var(--space-lg) 0;
-  }
-
-  /*=== intro ===*/
-  .intro {
-    display: flex;
-    align-items: center;
-  }
-
-  .intro img {
-    width: 50%;
-  }
-
-  .intro .content {
-    flex: 1;
-  }
-}
-
-/* Large devices (desktops, 1200px and up) */
-@media screen and (min-width: 1024px) {
-  /*=== nav ===*/
-  header nav {
-    display: flex;
-    justify-content: space-between;
-  }
-  header ul {
-    flex-direction: row;
-    padding: 0;
-  }
-  header .social-media{
-    display: block;
-  }
-  header .icon-menu, .window {
-    display: none;
-  }
-  /*=== intro ===*/
-  .intro {
-    min-height: 500px;
-  }
-
-  .intro .img-mobile {
-    display: none !important;
-  }
-
-  .intro .animation {
-    display: block;
-    position: relative;
-    width: 50%;
-    height: 500px;
-  }
-
 }
 
 /*=== nav modal ===*/
@@ -315,7 +285,6 @@ nav a {
 }
 
 .window:target {
-  /* display: block; */
   height: 800px;
 }
 
@@ -326,7 +295,7 @@ nav a {
   background-color: rgb(3, 59, 46);
   transition: 0.5s ease-in-out;
 }
-.icon-close  {
+.icon-close {
   position: absolute;
   top: 5%;
   right: 5%;
@@ -519,4 +488,98 @@ nav a {
   left: 45%;
   width: 18%;
   transform: rotate(-2.33rad);
+}
+
+/* Medium devices (vertical ipads, 768px and up) */
+@media only screen and (min-width: 768px) {
+  header {
+    padding: var(--space-sm) var(--space-lg);
+  }
+  header .logo {
+    width: 2.8rem;
+    height: 2.8rem;
+  }
+  header .icon-menu .icon {
+    font-size: 2.8rem;
+  }
+  /*=== nav ===*/
+
+  nav ul {
+    padding: var(--space-lg) 0;
+  }
+  /*== hero ===*/
+  .hero h1 {
+    font-size: 3.6rem;
+  }
+  .hero p {
+    font-size: 2.2rem;
+  }
+  /*=== intro ===*/
+  .intro {
+    display: flex;
+    align-items: center;
+  }
+
+  .intro img {
+    width: 50%;
+  }
+
+  .intro .content {
+    flex: 1;
+  }
+}
+
+/* Large devices (desktops, 1024px and up) */
+@media screen and (min-width: 1024px) {
+  /*=== nav ===*/
+  header nav {
+    display: flex;
+    justify-content: space-between;
+  }
+  header ul {
+    flex-direction: row;
+    padding: 0;
+  }
+  header .logo {
+    width: 3.6rem;
+    height: 3.6rem;
+  }
+  header .social-media {
+    display: block;
+  }
+  header .icon-menu,
+  .window {
+    display: none;
+  }
+  /*=== hero ===*/
+  .hero-wrapper {
+    height: min(95vh, 780px);
+  }
+  .hero .hero-desktop {
+    display: block;
+  }
+  .hero .hero-mobile {
+    display: none;
+  }
+
+  .slogan {
+    right: 5%;
+    width: min(40vw, 600px);
+    text-align: right;
+  }
+  /*=== intro ===*/
+  .intro {
+    min-height: 500px;
+  }
+
+  .intro .img-mobile {
+    display: none;
+  }
+
+  .intro .animation {
+    display: block;
+    position: relative;
+    width: 50%;
+    height: 500px;
+  }
 }
