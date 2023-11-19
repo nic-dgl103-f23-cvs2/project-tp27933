@@ -9,7 +9,7 @@
   --space-xl: calc(var(--space-base) * 4.5);
 
   --border-radius: 6px;
-  --main-width: min(90vw, 1024px);
+  --main-width: min(90%, 1024px);
   /*==== color ====*/
   --primary: rgb(3, 59, 46);
   --secondary: #011b13;
@@ -72,6 +72,7 @@ img {
   display: inline-block;
   max-width: 100%;
   border-style: none;
+  vertical-align: middle;
 }
 
 button,
@@ -123,7 +124,7 @@ a {
 .bottom-line::after {
   content: "";
   position: absolute;
-  left: 0;
+  left: 40%;
   bottom: calc(var(--space-xs) * -1);
   width: min(30%, 10rem);
   height: 5px;
@@ -176,12 +177,15 @@ header .icon-menu .icon {
   font-size: 2.2rem;
 }
 
-nav ul {
+header nav ul,
+.window nav ul {
   display: flex;
-  flex-direction: column;
   gap: var(--space-lg);
-  padding: var(--space-lg) 0;
   text-align: center;
+}
+.window nav ul {
+  flex-direction: column;
+  padding: var(--space-lg) 0;
 }
 
 nav a {
@@ -372,6 +376,7 @@ nav a {
 
 /*=== call-to-action ===*/
 .call-to-action {
+  margin-top: var(--space-xl);
   text-align: center;
 }
 
@@ -383,7 +388,7 @@ nav a {
 }
 
 .call-to-action img {
-  border-radius: 65% 15%/ 15% 5% 20%;
+  border-radius: 65% 15%/ 15% 0% 0%;
 }
 
 .call-to-action .title {
@@ -396,6 +401,58 @@ nav a {
   line-height: 1.4;
   font-size: var(--text-body);
   color: var(--text-content);
+}
+.call-to-action .content-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+/*=== footer ===*/
+
+footer {
+  padding: var(--space-lg);
+  background: var(--primary);
+  color: #fff;
+}
+.footer-wrapper,
+.contact-info,
+.info-wrapper,
+footer .content-wrapper h2,
+.copy-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.2rem;
+}
+footer .footer-wrapper {
+  margin: 0 auto;
+  width: var(--main-width);
+  text-align: center;
+}
+footer .footer-wrapper .title {
+  margin-top: var(--space-md);
+  margin-bottom: var(--space-sm);
+}
+footer .content-wrapper img {
+  width: 3.2rem;
+}
+
+footer .content-wrapper .social-media {
+  margin-top: var(--space-md);
+}
+footer .info-wrapper {
+  width: 100%;
+}
+footer .info-wrapper ul li {
+  margin-top: var(--space-md);
+}
+footer .copy-right {
+  margin-top: var(--space-md);
+  padding-top: var(--space-md);
+  border-top: 1px solid #fff;
+  text-align: center;
 }
 
 /*=== nav modal ===*/
@@ -433,7 +490,7 @@ nav a {
   font-size: 3.6rem;
 }
 
-/*=== 動畫 ===*/
+/*=== animation ===*/
 
 .element {
   z-index: 2;
@@ -505,7 +562,8 @@ nav a {
   top: 0;
   height: 4px;
   width: 0;
-  animation: connect 5s infinite;
+  animation: connect infinite;
+  animation-duration: 5s;
   animation-fill-mode: forwards;
   background: var(--highline);
 }
@@ -647,7 +705,7 @@ nav a {
 
   /*=== nav ===*/
 
-  nav ul {
+  .window nav ul {
     padding: var(--space-lg) 0;
   }
 
@@ -698,6 +756,9 @@ nav a {
     display: flex;
     gap: var(--space-lg);
   }
+  .call-to-action .content-wrapper {
+    padding-bottom: var(--space-xl);
+  }
 
   .call-to-action .img-wrapper {
     display: flex;
@@ -712,6 +773,22 @@ nav a {
     margin-inline-start: unset;
     transform: unset;
   }
+  .call-to-action img {
+    border-radius: 65% 15%/ 15% 5% 20%;
+  }
+
+  /*=== footer ===*/
+  footer .info-wrapper {
+    margin-top: var(--space-lg);
+    flex-direction: row;
+  }
+  footer .info-wrapper nav,
+  footer .info-wrapper .contact-info {
+    flex: 1;
+  }
+  footer .info-wrapper .contact-info {
+    border-left: 2px solid #fff;
+  }
 }
 
 /* Large devices (desktops, 1024px and up) */
@@ -722,7 +799,7 @@ nav a {
     justify-content: space-between;
   }
 
-  header ul {
+  header ul nav {
     flex-direction: row;
     padding: 0;
   }
@@ -785,5 +862,29 @@ nav a {
 
   .feature > ul > li {
     width: 30%;
+  }
+  /*=== footer ===*/
+  footer {
+    margin-top: var(--space-md);
+  }
+  footer .footer-wrapper .content-wrapper {
+    width: 40%;
+  }
+  footer .content-wrapper .title {
+    flex-direction: row;
+  }
+  footer,
+  footer .footer-wrapper,
+  footer .info-wrapper {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  footer .info-wrapper,
+  footer .footer-wrapper .title {
+    margin-top: 0;
+  }
+  footer .info-wrapper .contact-info {
+    border-width: 0;
   }
 }
