@@ -4,91 +4,147 @@
   --space-base: 1.6rem;
   --space-xs: calc(var(--space-base) * 0.25);
   --space-sm: calc(var(--space-base));
-  --space-md: calc(var(--space-base) * 0.5);
-  --space-lg: calc(var(--space-base) * 1.5);
-  --space-xl: calc(var(--space-base) * 3);
+  --space-md: calc(var(--space-base) * 1.5);
+  --space-lg: calc(var(--space-base) * 3);
+  --space-xl: calc(var(--space-base) * 4.5);
 
   --border-radius: 8px;
 
   /*==== color ====*/
   --primary: rgb(3, 59, 46);
-  --neutral: rgb(1, 22, 30)
-  --highlight: #00aa84;
+  --neutral: rgb(1, 22, 30) --highlight: #00aa84;
 
   --text-primary: #b3b5b4
 }
-/*=== normalize ===*/
+
+/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
+
 * {
   box-sizing: border-box;
   margin: 0;
 }
-img {
-  display: inline-block;
-  max-width: 100%;
-}
-/*=== normalize end ===*/
 html {
+  line-height: 1.15; /* 1 */
+  -webkit-text-size-adjust: 100%; /* 2 */
   font-size: 62.5%;
 }
+/**
+ * Remove the margin in all browsers.
+ */
 
-body {
+ body {
+  margin: 0;
   font-size: 1.6rem;
   font-family: "Ubuntu", sans-serif;
   background: #fff;
 }
+/**
+ * Render the `main` element consistently in IE.
+ */
+
+ main {
+  display: block;
+  padding: 0 var(--space-lg);
+}
+/**
+ * Remove the gray background on active links in IE 10.
+ */
+
+ a {
+  background-color: transparent;
+}
+img {
+  display: inline-block;
+  max-width: 100%;
+  border-style: none;
+}
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit; /* 1 */
+  font-size: 100%; /* 1 */
+  line-height: 1.15; /* 1 */
+  margin: 0; /* 2 */
+}
+/**
+ * Show the overflow in IE.
+ * 1. Show the overflow in Edge.
+ */
+
+ button,
+ input { /* 1 */
+   overflow: visible;
+ }
+
+/*=== general ===*/
+
 li {
   list-style: none;
 }
+
 a {
   text-decoration: none;
 }
-/*=== general ===*/
-main {
-  padding: 0 var(--space-lg);
-}
+
 .content {
   color: var(--text-primary)
 }
+
 /*=== nav ===*/
 header {
   z-index: 99;
   position: absolute;
   top: 0;
-  width: 100%;
-  padding: var(--space-xs);
+  padding: var(--space-md);
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
   color: #fff;
 }
-header .logo {
-  position: absolute;
-  inset: 0;
-  margin: auto; 
-  width: 3.6rem;
-  height: 3.6rem;
+header nav,  header .social-media{
+  display: none;
 }
+header nav {
+  display: none;
+}
+
+.social-media img {
+  width: 2.2rem;
+  margin-left: var(--space-sm);
+}
+.window .social-media {
+  margin-top: var(--space-lg);
+}
+header .logo {
+  width: 4.8rem;
+  height: 4.8rem;
+}
+
 header .icon-menu {
   display: inline-block;
   margin-left: auto;
 }
-header .icon-menu .icon{
+
+header .icon-menu .icon {
   color: #fff;
-  font-size: 4.2rem;
+  font-size: 4.8rem;
 }
 
-nav {
-  margin: 0 auto;
-}
-nav ul{
+nav ul {
   display: flex;
   flex-direction: column;
-  gap: var(--space-sm);
+  gap: var(--space-lg);
   padding: var(--space-lg) 0;
   text-align: center;
 }
 
-nav a{
+nav a {
   color: #fff;
 }
+
 /*=== hero ===*/
 .hero-wrapper {
   position: relative;
@@ -96,14 +152,17 @@ nav a{
   height: 800px;
   max-height: 90vh;
 }
+
 .hero {
   height: 100%;
 }
-.hero img{
-  width:100%; 
-  height:100%;
-  object-fit:cover;
+
+.hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
+
 .hero .mask {
   z-index: 2;
   position: absolute;
@@ -111,64 +170,139 @@ nav a{
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(
-    to bottom,
-    rgb(1, 22, 30,06),
-    rgba(3, 59, 46, 0.8)
-  )
+  background: linear-gradient(to bottom,
+      rgb(1, 22, 30, 06),
+      rgba(3, 59, 46, 0.8))
 }
+
 .slogan {
   z-index: 999;
   position: absolute;
   /* inset: 0; */
   top: 50%;
   left: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   color: #fff;
 }
 
 
 /*=== intro ===*/
-.intro-wrapper {
+.intro {
   padding: var(--space-lg) 0;
   text-align: center;
 }
+
 .intro .animation {
   display: none;
 }
 
 .intro .content {
   font-size: 1.4rem;
-    line-height: 1.5;
+  line-height: 1.5;
+}
+
+/*=== feature ===*/
+.feature img {
+  display: block;
+  width: 46rem;
+  margin: 0 auto;
+}
+
+.feature .content {
+  padding: var(--space-xl);
+  background: #04473A;
+  font-size: 2.2rem;
+}
+
+.feature ul {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(300px,100%), 1fr));
+  padding: 0;
+}
+
+.feature ul li {
+  padding: var(--space-lg);
+  background: #fff;
+  border-radius: var(--border-radius);
+}
+
+/* wave refer from https://css-generators.com/wavy-shapes/ */
+.box {
+  height: 200px;
+  --mask:
+    radial-gradient(126.18px at 50% calc(100% - 171.00px), #000 99%, #0000 101%) calc(50% - 120px) 0/240px 100%,
+    radial-gradient(126.18px at 50% calc(100% + 111.00px), #0000 99%, #000 101%) 50% calc(100% - 60px)/240px 100% repeat-x;
+  -webkit-mask: var(--mask);
+  mask: var(--mask);
+  background: #04473A;
+  border: none;
+}
+
+/*=== call-to-action ===*/
+.call-to-action img {
+  border-radius: 65% 15%/ 15% 5% 20%;
 }
 
 /* Medium devices (vertical ipads, 768px and up) */
 @media only screen and (min-width: 768px) {
+
   /*=== nav ===*/
   nav ul {
     padding: var(--space-lg) 0;
   }
+
   /*=== intro ===*/
   .intro {
     display: flex;
     align-items: center;
   }
+
   .intro img {
     width: 50%;
   }
+
   .intro .content {
     flex: 1;
   }
 }
+
 /* Large devices (desktops, 1200px and up) */
-@media only screen and (min-width: 1200px) {
- 
+@media screen and (min-width: 1024px) {
+  /*=== nav ===*/
+  header nav {
+    display: flex;
+    justify-content: space-between;
+  }
+  header ul {
+    flex-direction: row;
+    padding: 0;
+  }
+  header .social-media{
+    display: block;
+  }
+  header .icon-menu, .window {
+    display: none;
+  }
+  /*=== intro ===*/
+  .intro {
+    min-height: 500px;
+  }
+
+  .intro .img-mobile {
+    display: none !important;
+  }
+
+  .intro .animation {
+    display: block;
+    position: relative;
+    width: 50%;
+    height: 500px;
+  }
+
 }
-/*=== dialog ===*/
-.app {
-  width: 100%;
-  height: 100%;
-}
+
+/*=== nav modal ===*/
 .window {
   overflow: hidden;
   position: fixed;
@@ -184,11 +318,205 @@ nav a{
   /* display: block; */
   height: 800px;
 }
+
 .window_content {
+  position: relative;
   width: 100vw;
   padding: var(--space-lg);
   background-color: rgb(3, 59, 46);
   transition: 0.5s ease-in-out;
 }
+.icon-close  {
+  position: absolute;
+  top: 5%;
+  right: 5%;
+  color: #fff;
+}
+.icon-close .icon {
+  font-size: 3.6rem;
+}
 
+/*=== 動畫 ===*/
+.container {
+  position: relative;
+  width: 680px;
+  height: 500px;
+  background: green;
+}
 
+.element {
+  z-index: 2;
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: yellow;
+}
+
+.element_1 {
+  top: 10%;
+  left: 25%;
+}
+
+.element_2 {
+  top: 45%;
+  left: 15%;
+}
+
+.element_3 {
+  top: 70%;
+  left: 30%;
+}
+
+.element_4 {
+  top: 28%;
+  left: 42%;
+}
+
+.element_5 {
+  top: 50%;
+  left: 55%;
+}
+
+.element_6 {
+  top: 15%;
+  left: 70%;
+}
+
+.element_7 {
+  top: 65%;
+  left: 75%;
+}
+
+.line {
+  position: absolute;
+  background-color: pink;
+  height: 1px;
+  transform-origin: center;
+}
+
+.line::after {
+  content: "";
+  z-index: 1;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 3px;
+  width: 0;
+  animation: example 5s 3;
+  animation-fill-mode: forwards;
+  background: red;
+}
+
+.line:nth-child(odd):after {
+  animation-delay: 0.5s;
+  animation-duration: 4.5s;
+}
+
+@keyframes example {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 100%;
+  }
+}
+
+.line1 {
+  top: 30%;
+  left: 16%;
+  width: 25%;
+  transform: rotate(2rad);
+}
+
+.line2 {
+  top: 43%;
+  left: 16%;
+  width: 35%;
+  transform: rotate(1.44rad);
+}
+
+.line3 {
+  top: 67%;
+  left: 16%;
+  width: 25%;
+  transform: rotate(0.81rad);
+}
+
+.line4 {
+  top: 30%;
+  left: 30%;
+  width: 20%;
+  transform: rotate(-2.56rad);
+}
+
+.line5 {
+  top: 46%;
+  left: 20%;
+  width: 30%;
+  transform: rotate(2.77rad);
+}
+
+.line6 {
+  top: 59%;
+  left: 27%;
+  width: 30%;
+  transform: rotate(2rad);
+}
+
+.line7 {
+  top: 70%;
+  left: 35%;
+  width: 26%;
+  transform: rotate(2.68rad);
+}
+
+.line8 {
+  top: 23%;
+  left: 32%;
+  width: 45%;
+  transform: rotate(-3.07rad);
+}
+
+.line9 {
+  top: 32%;
+  left: 47%;
+  width: 30%;
+  transform: rotate(2.86rad);
+}
+
+.line10 {
+  top: 38%;
+  left: 58%;
+  width: 25%;
+  transform: rotate(2.17rad);
+}
+
+.line11 {
+  top: 67%;
+  left: 60%;
+  width: 20%;
+  transform: rotate(-2.7rad);
+}
+
+.line12 {
+  top: 51%;
+  left: 64%;
+  width: 30%;
+  transform: rotate(-1.73rad);
+}
+
+.line13 {
+  top: 77%;
+  left: 36%;
+  width: 45%;
+  transform: rotate(3.07rad);
+}
+
+.line14 {
+  top: 42%;
+  left: 45%;
+  width: 18%;
+  transform: rotate(-2.33rad);
+}
