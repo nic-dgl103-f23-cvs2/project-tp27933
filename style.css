@@ -162,6 +162,8 @@ nav a {
 .hero-wrapper {
   position: relative;
   width: 100%;
+}
+.home .hero-wrapper {
   height: 700px;
   max-height: 90vh;
 }
@@ -658,6 +660,22 @@ footer .copy-right {
   transform: rotate(-2.33rad);
 }
 
+/*== about-us page ===*/
+.about-us .hero,
+.contact-us .hero {
+  position: relative;
+  height: 180px;
+}
+.about-us .hero .title {
+  z-index: 2;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%);
+  color: #fff;
+  font-size: 3.2rem;
+}
+
 /* Medium devices (vertical ipads, 768px and up) */
 @media only screen and (min-width: 768px) {
   :root {
@@ -679,7 +697,10 @@ footer .copy-right {
   header .icon-menu .icon {
     font-size: 2.8rem;
   }
-
+  .about-us .hero,
+  .contact-us .hero {
+    height: min(40vh, 320px);
+  }
   /*=== nav ===*/
 
   .window nav ul {
@@ -794,9 +815,13 @@ footer .copy-right {
   .window {
     display: none;
   }
-
+  .about-us .hero,
+  .contact-us .hero {
+    height: 320px;
+  }
   /*=== hero ===*/
-  .hero-wrapper {
+
+  .home .hero-wrapper {
     height: min(95vh, 780px);
   }
 
