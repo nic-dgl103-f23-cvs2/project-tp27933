@@ -1,6 +1,5 @@
 :root {
   /*==== size ====*/
-
   --space-base: 1.6rem;
   --space-xs: calc(var(--space-base) * 0.25);
   --space-sm: calc(var(--space-base));
@@ -24,8 +23,6 @@
   --text-body: 1.6rem;
 }
 
-/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
-
 * {
   box-sizing: border-box;
   margin: 0;
@@ -40,28 +37,17 @@ html {
   font-size: 62.5%;
 }
 
-/**
- * Remove the margin in all browsers.
- */
-
 body {
   margin: 0;
   font-size: 1.6rem;
-  font-family: "Ubuntu", sans-serif;
+  font-family: "Roboto", sans-serif;
   background: #fff;
+  color: var(--text-content);
 }
-
-/**
- * Render the `main` element consistently in IE.
- */
 
 main {
   padding: 0 var(--space-md);
 }
-
-/**
- * Remove the gray background on active links in IE 10.
- */
 
 a {
   display: inline-block;
@@ -75,33 +61,13 @@ img {
   vertical-align: middle;
 }
 
-button,
-input,
-optgroup,
-select,
-textarea {
-  font-family: inherit;
-  /* 1 */
-  font-size: 100%;
-  /* 1 */
-  line-height: 1.15;
-  /* 1 */
-  margin: 0;
-  /* 2 */
-}
-
-/**
- * Show the overflow in IE.
- * 1. Show the overflow in Edge.
- */
-
-button,
-input {
-  /* 1 */
-  overflow: visible;
-}
-
 /*=== general ===*/
+
+.title {
+  font-family: "Oswald", sans-serif;
+  font-size: var(--text-h2);
+  color: var(--text-primary);
+}
 
 li {
   list-style: none;
@@ -242,11 +208,12 @@ nav a {
 .slogan h1 {
   padding-bottom: var(--space-sm);
   font-size: 3.2rem;
+  color: #fff;
 }
 
 .slogan p {
   line-height: 1.2;
-  font-size: 2.6rem;
+  font-size: var(--text-h2);
 }
 
 .slogan a {
@@ -263,11 +230,6 @@ nav a {
   margin-top: var(--space-lg);
   padding: var(--space-lg) 0;
   text-align: center;
-}
-
-.intro h2 {
-  font-size: var(--text-h2);
-  color: var(--text-primary);
 }
 
 .intro .animation {
@@ -296,12 +258,6 @@ nav a {
   margin-inline-start: 50%;
   transform: translateX(-50%);
   text-align: center;
-}
-
-.feature .title {
-  margin-bottom: var(--space-xl);
-  font-size: var(--text-h2);
-  color: var(--text-primary);
 }
 
 .feature .content {
@@ -408,8 +364,6 @@ nav a {
 
 .call-to-action .title {
   margin-bottom: var(--space-lg);
-  font-size: var(--text-h2);
-  color: var(--text-primary);
 }
 
 .call-to-action .content {
@@ -453,13 +407,21 @@ footer .footer-wrapper .title {
 footer .content-wrapper img {
   width: 3.2rem;
 }
-
+footer .title {
+  color: #fff;
+}
+footer .content-wrapper h2,
+footer .info-wrapper h3 {
+  font-size: var(--text-h4);
+  font-weight: normal;
+}
 footer .content-wrapper .social-media {
   margin-top: var(--space-md);
 }
 footer .info-wrapper {
   width: 100%;
 }
+
 footer .info-wrapper ul li {
   margin-top: var(--space-md);
 }
@@ -505,7 +467,7 @@ footer .copy-right {
   font-size: 3.6rem;
 }
 
-/*=== animation ===*/
+/*=== home intro section animation ===*/
 
 .element {
   z-index: 2;
