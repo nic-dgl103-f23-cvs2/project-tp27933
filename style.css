@@ -184,6 +184,17 @@ header nav ul,
   background: #1acda3;
 }
 
+.about-us .hero .title,
+.contact-us .hero .title {
+  z-index: 2;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%);
+  color: #fff;
+  font-size: 3.2rem;
+}
+
 /*----- footer -----*/
 footer {
   padding: 4.8rem;
@@ -595,16 +606,6 @@ footer .info-wrapper .copy-right {
 }
 
 /*=== About us page ===*/
-.about-us .hero .title {
-  z-index: 2;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%);
-  color: #fff;
-  font-size: 3.2rem;
-}
-
 .about-us main {
   position: relative;
   padding-top: 7.2rem;
@@ -652,6 +653,69 @@ footer .info-wrapper .copy-right {
 }
 .about-us main ul li:not(.illustration) {
   padding: 2.4rem;
+}
+
+/*=== Contact us page ===*/
+.contact-us main {
+  padding-top: 7.2rem;
+  padding-bottom: 7.2rem;
+}
+.contact-us .location-map {
+  width: 100vw;
+  margin-inline-start: 50%;
+  transform: translateX(-50%);
+}
+.contact-us .hero img {
+  -o-object-position: center;
+     object-position: center;
+}
+.contact-us .info {
+  display: flex;
+  flex-direction: column;
+}
+.contact-us table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+.contact-us table td,
+.contact-us table th {
+  text-align: left;
+  padding: 1.6rem;
+}
+.contact-us table tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+.contact-us .form-wrapper {
+  margin-top: 7.2rem;
+}
+
+.contact-us form {
+  margin-top: 2.4rem;
+  padding: 4.8rem;
+  width: 100%;
+  background: #fff;
+  box-shadow: 0 3px 6px #ccc;
+}
+.contact-us form label,
+.contact-us form input,
+.contact-us form button {
+  display: block;
+  width: 100%;
+}
+.contact-us form label {
+  margin-top: 2.4rem;
+  margin-bottom: 1.6rem;
+}
+.contact-us form input {
+  min-height: 3.2rem;
+}
+.contact-us form input,
+.contact-us form textarea {
+  background-color: rgba(26, 205, 163, 0.15);
+  border-radius: 6px;
+  border: none;
 }
 
 /* Medium devices (vertical ipads, 768px and up) */
@@ -747,6 +811,15 @@ footer .info-wrapper .copy-right {
   }
   .about-us main ul li {
     flex-basis: calc(50% - 2.4rem);
+  }
+  /*=== Contact us ===*/
+  .contact-us .info {
+    flex-direction: row;
+  }
+  .contact-us .location-map {
+    width: 50%;
+    margin-inline-start: unset;
+    transform: unset;
   }
 }
 /* Large devices (desktops, 1024px and up) */
