@@ -187,7 +187,7 @@ header nav ul,
 /*----- footer -----*/
 footer {
   padding: 4.8rem;
-  background: rgb(3, 59, 46);
+  background: #033b2e;
   color: #fff;
 }
 
@@ -595,10 +595,6 @@ footer .info-wrapper .copy-right {
 }
 
 /*=== About us page ===*/
-.about-us {
-  background: #f4f9f8;
-}
-
 .about-us .hero .title {
   z-index: 2;
   position: absolute;
@@ -611,17 +607,23 @@ footer .info-wrapper .copy-right {
 
 .about-us main {
   position: relative;
-}
-.about-us main ul li {
-  padding: 2.4rem;
-  background: #fff;
-  box-shadow: 3px 3px 8px #ccc;
+  padding-top: 7.2rem;
+  padding-bottom: 7.2rem;
 }
 .about-us main .illustration {
   display: none;
+  z-index: -1;
+  position: absolute;
+  bottom: -15%;
+  left: calc(50% - 115px);
+  width: 220px;
+}
+.about-us main .illustration img {
+  width: 100%;
 }
 .about-us main .icon {
   z-index: 0;
+  display: none;
   position: absolute;
   left: calc(50% - 140px);
   top: 0;
@@ -629,6 +631,27 @@ footer .info-wrapper .copy-right {
   height: 280px;
   background: url(assets/logo-white.png) no-repeat;
   background-size: cover;
+}
+
+.about-us main ul {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+.about-us main ul li {
+  text-align: center;
+  background: #fff;
+  box-shadow: 3px 3px 8px #ccc;
+}
+.about-us main ul li img {
+  width: 4.5rem;
+  margin-bottom: 2.4rem;
+}
+.about-us main ul li:not(.illustration) {
+  padding: 2.4rem;
 }
 
 /* Medium devices (vertical ipads, 768px and up) */
@@ -692,11 +715,11 @@ footer .info-wrapper .copy-right {
   .home .intro .content {
     flex: 1;
   }
-  /*=== features ===*/
+  /*----- features -----*/
   .feature > ul > li {
     width: calc(50% - 2rem);
   }
-  /*=== call-to-actions ===*/
+  /*----- call-to-actions -----*/
   .call-to-action {
     display: flex;
     gap: 4.8rem;
@@ -716,6 +739,14 @@ footer .info-wrapper .copy-right {
   }
   .call-to-action img {
     border-radius: 65% 15%/15% 5% 20%;
+  }
+  /*=== About page ===*/
+  .about-us main ul {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .about-us main ul li {
+    flex-basis: calc(50% - 2.4rem);
   }
 }
 /* Large devices (desktops, 1024px and up) */
@@ -804,15 +835,19 @@ footer .info-wrapper .copy-right {
     width: 30%;
   }
   /*=== About us page ===*/
-  .about-us main ul {
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
   .about-us main ul li {
-    padding: 2.4rem;
-    width: calc(50% - 2.4rem);
+    text-align: left;
     background: transparent;
     box-shadow: none;
+  }
+  .about-us main ul li img:not(.illustration) {
+    display: none;
+  }
+  .about-us main ul li:not(.illustration) {
+    padding: 2.4rem 10rem;
+  }
+  .about-us main .icon {
+    display: none;
   }
   .about-us main .illustration {
     display: block;
