@@ -577,10 +577,16 @@ footer .info-wrapper .copy-right {
   border-radius: 6px;
 }
 .home .call-to-action .img-wrapper {
-  margin-top: 2.4rem;
+  margin-top: 4.8rem;
   width: 100vw;
   margin-inline-start: 50%;
   transform: translateX(-50%);
+}
+.home .call-to-action .img-wrapper img {
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 65% 15%/15% 0% 0%;
 }
 .home .call-to-action img {
   border-radius: 65% 15%/15% 0% 0%;
@@ -780,18 +786,18 @@ footer .info-wrapper .copy-right {
     flex: 1;
   }
   /*----- features -----*/
-  .feature > ul > li {
+  .home .feature > ul > li {
     width: calc(50% - 2rem);
   }
   /*----- call-to-actions -----*/
-  .call-to-action {
+  .home .call-to-action {
     display: flex;
     gap: 4.8rem;
   }
-  .call-to-action .content-wrapper {
+  .home .call-to-action .content-wrapper {
     padding-bottom: 7.2rem;
   }
-  .call-to-action .img-wrapper {
+  .home .call-to-action .img-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -800,9 +806,6 @@ footer .info-wrapper .copy-right {
     width: unset;
     margin-inline-start: unset;
     transform: unset;
-  }
-  .call-to-action img {
-    border-radius: 65% 15%/15% 5% 20%;
   }
   /*=== About page ===*/
   .about-us main ul {
@@ -852,9 +855,6 @@ footer .info-wrapper .copy-right {
   }
   .hero-mobile {
     display: none;
-  }
-  footer {
-    margin-top: 2.4rem;
   }
   footer,
   footer .footer-wrapper,

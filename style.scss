@@ -617,8 +617,13 @@ footer .info-wrapper {
 		border-radius: $border-radius;
 	}
 	.img-wrapper {
-		margin-top: $space-md;
+		margin-top: $space-lg;
 		@include screen-width;
+		img {
+			height: 100%;
+			object-fit: cover;
+			border-radius: 65% 15%/15% 0% 0%;
+		}
 	}
 
 	img {
@@ -831,12 +836,12 @@ footer .info-wrapper {
 	}
 
 	/*----- features -----*/
-	.feature > ul > li {
+	.home .feature > ul > li {
 		width: calc(50% - 2rem);
 	}
 
 	/*----- call-to-actions -----*/
-	.call-to-action {
+	.home .call-to-action {
 		display: flex;
 		gap: $space-lg;
 		.content-wrapper {
@@ -850,10 +855,8 @@ footer .info-wrapper {
 			margin-inline-start: unset;
 			transform: unset;
 		}
-		img {
-			border-radius: 65% 15%/ 15% 5% 20%;
-		}
 	}
+
 	/*=== About page ===*/
 	.about-us main ul {
 		flex-direction: row;
@@ -909,9 +912,7 @@ footer .info-wrapper {
 			display: none;
 		}
 	}
-	footer {
-		margin-top: $space-md;
-	}
+
 	footer,
 	footer .footer-wrapper,
 	footer .info-wrapper {
