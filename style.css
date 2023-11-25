@@ -614,7 +614,6 @@ footer .info-wrapper .copy-right {
 /*=== About us page ===*/
 .about-us main {
   position: relative;
-  padding-top: 7.2rem;
   padding-bottom: 7.2rem;
 }
 .about-us main .illustration {
@@ -662,10 +661,6 @@ footer .info-wrapper .copy-right {
 }
 
 /*=== Contact us page ===*/
-.contact-us main {
-  padding-top: 7.2rem;
-  padding-bottom: 7.2rem;
-}
 .contact-us .location-map {
   width: 100vw;
   margin-inline-start: 50%;
@@ -677,32 +672,62 @@ footer .info-wrapper .copy-right {
 }
 .contact-us .info {
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
 }
-.contact-us table {
+
+.contact-us .info .content {
+  flex: 1;
+}
+.contact-us .info .content .title {
+  padding-top: 4.8rem;
+  padding-bottom: 1.6rem;
+}
+.contact-us .info .content table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
   width: 100%;
 }
-.contact-us table td,
-.contact-us table th {
+.contact-us .info .content table td,
+.contact-us .info .content table th {
   text-align: left;
   padding: 1.6rem;
 }
-.contact-us table tr:nth-child(even) {
+.contact-us .info .content table tr:nth-child(even) {
   background-color: #dddddd;
 }
 
 .contact-us .form-wrapper {
+  width: 100vw;
+  margin-inline-start: 50%;
+  transform: translateX(-50%);
+  position: relative;
   margin-top: 7.2rem;
+}
+.contact-us .form-wrapper img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+  align-self: stretch;
+  filter: brightness(0.4);
+  z-index: -1;
+}
+
+.contact-us .form-container {
+  position: relative;
 }
 
 .contact-us form {
   margin-top: 2.4rem;
-  padding: 4.8rem;
+  padding: 1.6rem;
   width: 100%;
-  background: #fff;
-  box-shadow: 0 3px 6px #ccc;
+}
+.contact-us form h2 {
+  color: #1acda3;
+  text-align: center;
 }
 .contact-us form label,
 .contact-us form input,
@@ -710,18 +735,42 @@ footer .info-wrapper .copy-right {
   display: block;
   width: 100%;
 }
+.contact-us form input,
+.contact-us form textarea {
+  padding: 1.6rem 2.4rem;
+  background-color: rgba(255, 255, 255, 0.8);
+  font-size: 2.4rem;
+  border-radius: 6px;
+  border: none;
+}
 .contact-us form label {
   margin-top: 2.4rem;
   margin-bottom: 1.6rem;
 }
-.contact-us form input {
-  min-height: 3.2rem;
-}
-.contact-us form input,
 .contact-us form textarea {
-  background-color: rgba(26, 205, 163, 0.15);
+  width: 100%;
+  min-height: 150px;
+}
+
+.contact-us .form-container .mask {
+  z-index: 2;
+  display: none;
+  position: absolute;
+  left: -8rem;
+  width: 8rem;
+  height: 100%;
+  background: linear-gradient(to bottom right, transparent 49.5%, #fff 50%);
+}
+
+.contact-us form button {
+  outline: 0;
+  border: 0;
+  margin: 4.8rem 0;
+  padding: 1.6rem 2.4rem;
+  font-size: 2.4rem;
+  color: #fff;
+  background: #1acda3;
   border-radius: 6px;
-  border: none;
 }
 
 /* Medium devices (vertical ipads, 768px and up) */
@@ -808,6 +857,9 @@ footer .info-wrapper .copy-right {
     transform: unset;
   }
   /*=== About page ===*/
+  .about-us main {
+    padding-top: 7.2rem;
+  }
   .about-us main ul {
     flex-direction: row;
     flex-wrap: wrap;
@@ -816,13 +868,28 @@ footer .info-wrapper .copy-right {
     flex-basis: calc(50% - 2.4rem);
   }
   /*=== Contact us ===*/
-  .contact-us .info {
-    flex-direction: row;
+  .contact-us .form-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0;
   }
-  .contact-us .location-map {
-    width: 50%;
-    margin-inline-start: unset;
-    transform: unset;
+  .contact-us .form-wrapper .form-container {
+    flex: 1;
+  }
+  .contact-us .form-wrapper img {
+    position: static;
+    width: 40%;
+    height: unset;
+    filter: unset;
+  }
+  .contact-us .form-wrapper form {
+    margin-top: 0;
+    padding: 1.6rem 4.8rem;
+  }
+  .contact-us .form-wrapper form input,
+  .contact-us .form-wrapper form textarea {
+    background-color: rgba(26, 205, 163, 0.1);
   }
 }
 /* Large devices (desktops, 1024px and up) */
@@ -862,6 +929,9 @@ footer .info-wrapper .copy-right {
     flex-direction: row;
     align-items: flex-start;
     justify-content: flex-start;
+  }
+  footer .footer-wrapper {
+    margin-bottom: 0;
   }
   footer .footer-wrapper .contact-info {
     border-width: 0;
@@ -908,21 +978,39 @@ footer .info-wrapper .copy-right {
     width: 30%;
   }
   /*=== About us page ===*/
-  .about-us main ul li {
+  .about-us main li {
     text-align: left;
     background: transparent;
     box-shadow: none;
   }
-  .about-us main ul li img:not(.illustration) {
+  .about-us main li img:not(.illustration) {
     display: none;
   }
-  .about-us main ul li:not(.illustration) {
+  .about-us main li li:not(.illustration) {
     padding: 2.4rem 10rem;
   }
   .about-us main .icon {
     display: none;
   }
   .about-us main .illustration {
+    display: block;
+  }
+  /*=== Contact us page ===*/
+  .contact-us .info {
+    flex-direction: row;
+  }
+  .contact-us .info .location-map {
+    width: min(600px, 50vw);
+    margin-inline-start: unset;
+    transform: unset;
+  }
+  .contact-us .info .content {
+    padding: 0 4.8rem;
+  }
+  .contact-us .form-wrapper img {
+    width: 50%;
+  }
+  .contact-us .form-container .mask {
     display: block;
   }
 }/*# sourceMappingURL=style.css.map */

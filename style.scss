@@ -651,7 +651,6 @@ footer .info-wrapper {
 
 .about-us main {
 	position: relative;
-	padding-top: $space-xl;
 	padding-bottom: $space-xl;
 
 	.illustration {
@@ -701,10 +700,6 @@ footer .info-wrapper {
 }
 /*=== Contact us page ===*/
 .contact-us {
-	main {
-		padding-top: $space-xl;
-		padding-bottom: $space-xl;
-	}
 	.location-map {
 		@include screen-width;
 	}
@@ -712,8 +707,15 @@ footer .info-wrapper {
 		object-position: center;
 	}
 	.info {
-		display: flex;
+		@include flex-center();
 		flex-direction: column;
+	}
+}
+.contact-us .info .content {
+	flex: 1;
+	.title {
+		padding-top: $space-lg;
+		padding-bottom: $space-sm;
 	}
 	table {
 		font-family: arial, sans-serif;
@@ -731,33 +733,80 @@ footer .info-wrapper {
 	}
 }
 .contact-us .form-wrapper {
+	@include screen-width();
+	position: relative;
 	margin-top: $space-xl;
+
+	img {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		-o-object-fit: cover;
+		object-fit: cover;
+		align-self: stretch;
+		filter: brightness(0.4);
+		z-index: -1;
+	}
 }
+.contact-us .form-container {
+	position: relative;
+}
+
 .contact-us form {
 	margin-top: $space-md;
-	padding: $space-lg;
+	padding: $space-sm;
 	width: 100%;
-	background: #fff;
-	box-shadow: 0 3px 6px #ccc;
+	h2 {
+		color: $highline;
+		text-align: center;
+	}
 	label,
 	input,
 	button {
 		display: block;
 		width: 100%;
 	}
+	input,
+	textarea {
+		padding: $space-sm $space-md;
+		background-color: rgba(255, 255, 255, 0.8);
+		font-size: $text-h3;
+		border-radius: $border-radius;
+		border: none;
+	}
 	label {
 		margin-top: $space-md;
 		margin-bottom: $space-sm;
 	}
-	input {
-		min-height: 3.2rem;
-	}
-	input,
+
 	textarea {
-		background-color: rgba($highline, $alpha: 0.15);
-		border-radius: $border-radius;
-		border: none;
+		width: 100%;
+		min-height: 150px;
 	}
+}
+.contact-us .form-container .mask {
+	z-index: 2;
+	display: none;
+	position: absolute;
+	left: -8rem;
+	width: 8rem;
+	height: 100%;
+	background: linear-gradient(to bottom right, transparent 49.5%, #fff 50%);
+
+	// background-repeat: no-repeat;
+	// background-image: linear-gradient(314deg, #383e3c 50%, rgba(255, 255, 255, 0) 50%), linear-gradient(226deg, #383e3c 50%, rgba(255, 255, 255, 0) 50%);
+	// background-size: 100% 50%;
+	// background-position: top right, bottom right;
+}
+.contact-us form button {
+	outline: 0;
+	border: 0;
+	margin: $space-lg 0;
+	padding: $space-sm $space-md;
+	font-size: $text-h3;
+	color: #fff;
+	background: $highline;
+	border-radius: $border-radius;
 }
 /* Medium devices (vertical ipads, 768px and up) */
 @media only screen and (min-width: 768px) {
@@ -858,21 +907,38 @@ footer .info-wrapper {
 	}
 
 	/*=== About page ===*/
-	.about-us main ul {
-		flex-direction: row;
-		flex-wrap: wrap;
-		li {
-			flex-basis: calc(50% - $space-md);
+	.about-us main {
+		padding-top: $space-xl;
+		ul {
+			flex-direction: row;
+			flex-wrap: wrap;
+			li {
+				flex-basis: calc(50% - $space-md);
+			}
 		}
 	}
+
 	/*=== Contact us ===*/
-	.contact-us .info {
-		flex-direction: row;
-	}
-	.contact-us .location-map {
-		width: 50%;
-		margin-inline-start: unset;
-		transform: unset;
+	.contact-us .form-wrapper {
+		@include flex-center();
+		margin-bottom: 0;
+		.form-container {
+			flex: 1;
+		}
+		img {
+			position: static;
+			width: 40%;
+			height: unset;
+			filter: unset;
+		}
+		form {
+			margin-top: 0;
+			padding: $space-sm $space-lg;
+			input,
+			textarea {
+				background-color: rgba($highline, $alpha: 0.1);
+			}
+		}
 	}
 }
 
@@ -921,6 +987,7 @@ footer .info-wrapper {
 		justify-content: flex-start;
 	}
 	footer .footer-wrapper {
+		margin-bottom: 0;
 		.contact-info {
 			border-width: 0;
 		}
@@ -976,15 +1043,14 @@ footer .info-wrapper {
 	/*=== About us page ===*/
 
 	.about-us main {
-		ul {
-			li {
-				text-align: left;
-				background: transparent;
-				box-shadow: none;
-				img:not(.illustration) {
-					display: none;
-				}
+		li {
+			text-align: left;
+			background: transparent;
+			box-shadow: none;
+			img:not(.illustration) {
+				display: none;
 			}
+
 			li:not(.illustration) {
 				padding: $space-md 10rem;
 			}
@@ -993,6 +1059,27 @@ footer .info-wrapper {
 			display: none;
 		}
 		.illustration {
+			display: block;
+		}
+	}
+	/*=== Contact us page ===*/
+	.contact-us {
+		.info {
+			flex-direction: row;
+			.location-map {
+				width: min(600px, 50vw);
+				margin-inline-start: unset;
+				transform: unset;
+			}
+			.content {
+				padding: 0 $space-lg;
+			}
+		}
+
+		.form-wrapper img {
+			width: 50%;
+		}
+		.form-container .mask {
 			display: block;
 		}
 	}
