@@ -17,13 +17,16 @@ $text-content: #696b6a !default;
 
 /*=== other ===*/
 $border-radius: 6px !default;
-$main-width: min(90%, 1024px) !default;
+
+// using original declare for variables so we can have responsive declare
 :root {
 	--text-h1: 3.2rem;
 	--text-h2: 2.8rem;
 	--text-h3: 2.4rem;
 	--text-h4: 1.8rem;
 	--text-body: 1.6rem;
+
+	--max-width: min(90%, 540px);
 }
 @mixin flex-center {
 	display: flex;
@@ -174,10 +177,6 @@ body {
 	font-family: "Roboto", sans-serif;
 	background: #fff;
 	color: $text-content;
-}
-
-main {
-	padding: 0 $space-md;
 }
 
 a {
@@ -367,7 +366,8 @@ footer .info-wrapper h3 {
 
 footer .footer-wrapper {
 	margin: 0 auto;
-	width: $main-width;
+	width: var(--max-width);
+	margin: 0 auto;
 	text-align: center;
 	.title {
 		margin-top: $space-md;
@@ -509,6 +509,9 @@ footer .info-wrapper {
 	.intro {
 		margin-top: $space-lg;
 		padding: $space-lg 0;
+		margin: 0 auto;
+		width: var(--max-width);
+
 		text-align: center;
 		.animation,
 		& .title-desktop {
@@ -629,6 +632,7 @@ footer .info-wrapper {
 	.content-wrapper {
 		@include flex-center();
 		flex-direction: column;
+		padding: 0 $space-lg;
 	}
 	.content {
 		line-height: 1.4;
@@ -653,7 +657,11 @@ footer .info-wrapper {
 		"text5";
 	padding-bottom: $space-xl;
 	h2 {
+		margin-bottom: $space-md;
 		font-size: var(--text-h3);
+	}
+	p {
+		line-height: 1.5;
 	}
 	li {
 		text-align: center;
@@ -808,6 +816,8 @@ footer .info-wrapper {
 		--text-h3: 2.6rem;
 		--text-h4: 2.2rem;
 		--text-body: 1.8rem;
+
+		--max-width: min(90%, 720px);
 	}
 
 	header {
@@ -884,13 +894,11 @@ footer .info-wrapper {
 	/*----- call-to-actions -----*/
 	.home .call-to-action {
 		display: flex;
-		gap: $space-lg;
 		.content-wrapper {
 			padding-bottom: $space-xl;
 		}
 		.img-wrapper {
 			@include flex-center();
-			margin-right: calc($space-md * -1);
 			margin-top: 0;
 			width: unset;
 			margin-inline-start: unset;
@@ -942,13 +950,15 @@ footer .info-wrapper {
 	}
 }
 
-/* Large devices (desktops, 1024px and up) */
-@media screen and (min-width: 1024px) {
+/* Large devices (desktops, 1200px and up) */
+@media screen and (min-width: 1200px) {
 	:root {
 		--text-h1: 4.2rem;
 		--text-h2: 3.8rem;
 		--text-h3: 2.8rem;
 		--text-h4: 2.4rem;
+
+		--max-width: min(90%, 1140px);
 	}
 	/*=== nav ===*/
 	header {
@@ -1023,7 +1033,6 @@ footer .info-wrapper {
 
 	/*----- intro -----*/
 	.home .intro {
-		width: $main-width;
 		margin: auto;
 		min-height: 500px;
 		.img-mobile {

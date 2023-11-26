@@ -7,6 +7,7 @@
   --text-h3: 2.4rem;
   --text-h4: 1.8rem;
   --text-body: 1.6rem;
+  --max-width: min(90%, 540px);
 }
 
 /*=== general ===*/
@@ -27,10 +28,6 @@ body {
   font-family: "Roboto", sans-serif;
   background: #fff;
   color: #696b6a;
-}
-
-main {
-  padding: 0 2.4rem;
 }
 
 a {
@@ -223,7 +220,8 @@ footer .info-wrapper h3 {
 
 footer .footer-wrapper {
   margin: 0 auto;
-  width: min(90%, 1024px);
+  width: var(--max-width);
+  margin: 0 auto;
   text-align: center;
 }
 footer .footer-wrapper .title {
@@ -477,6 +475,8 @@ footer .info-wrapper .copy-right {
 .home .intro {
   margin-top: 4.8rem;
   padding: 4.8rem 0;
+  margin: 0 auto;
+  width: var(--max-width);
   text-align: center;
 }
 .home .intro .animation, .home .intro .title-desktop {
@@ -598,6 +598,7 @@ footer .info-wrapper .copy-right {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  padding: 0 4.8rem;
 }
 .home .call-to-action .content {
   line-height: 1.4;
@@ -619,7 +620,11 @@ footer .info-wrapper .copy-right {
   padding-bottom: 7.2rem;
 }
 .about-us main ul h2 {
+  margin-bottom: 2.4rem;
   font-size: var(--text-h3);
+}
+.about-us main ul p {
+  line-height: 1.5;
 }
 .about-us main ul li {
   text-align: center;
@@ -780,6 +785,7 @@ footer .info-wrapper .copy-right {
     --text-h3: 2.6rem;
     --text-h4: 2.2rem;
     --text-body: 1.8rem;
+    --max-width: min(90%, 720px);
   }
   header {
     padding: 1.6rem 4.8rem;
@@ -844,7 +850,6 @@ footer .info-wrapper .copy-right {
   /*----- call-to-actions -----*/
   .home .call-to-action {
     display: flex;
-    gap: 4.8rem;
   }
   .home .call-to-action .content-wrapper {
     padding-bottom: 7.2rem;
@@ -853,7 +858,6 @@ footer .info-wrapper .copy-right {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-right: -2.4rem;
     margin-top: 0;
     width: unset;
     margin-inline-start: unset;
@@ -900,13 +904,14 @@ footer .info-wrapper .copy-right {
     background-color: rgba(26, 205, 163, 0.1);
   }
 }
-/* Large devices (desktops, 1024px and up) */
-@media screen and (min-width: 1024px) {
+/* Large devices (desktops, 1200px and up) */
+@media screen and (min-width: 1200px) {
   :root {
     --text-h1: 4.2rem;
     --text-h2: 3.8rem;
     --text-h3: 2.8rem;
     --text-h4: 2.4rem;
+    --max-width: min(90%, 1140px);
   }
   /*=== nav ===*/
   header nav {
@@ -971,7 +976,6 @@ footer .info-wrapper .copy-right {
   }
   /*----- intro -----*/
   .home .intro {
-    width: min(90%, 1024px);
     margin: auto;
     min-height: 500px;
   }
