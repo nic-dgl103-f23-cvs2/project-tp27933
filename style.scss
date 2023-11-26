@@ -15,14 +15,16 @@ $light-teal: #f4f9f8 !default;
 $text-primary: #2c2e2d !default;
 $text-content: #696b6a !default;
 
-$text-h2: 2.8rem !default;
-$text-h3: 2.4rem !default;
-$text-h4: 1.8rem !default;
-$text-body: 1.6rem !default;
 /*=== other ===*/
 $border-radius: 6px !default;
 $main-width: min(90%, 1024px) !default;
-
+:root {
+	--text-h1: 3.2rem;
+	--text-h2: 2.8rem;
+	--text-h3: 2.4rem;
+	--text-h4: 1.8rem;
+	--text-body: 1.6rem;
+}
 @mixin flex-center {
 	display: flex;
 	justify-content: center;
@@ -188,6 +190,7 @@ img {
 	max-width: 100%;
 	border-style: none;
 	vertical-align: middle;
+	object-fit: cover;
 }
 li {
 	list-style: none;
@@ -213,15 +216,9 @@ a {
 	background: $highline;
 }
 
-.title {
-	font-family: "Oswald", sans-serif;
-	font-size: $text-h2;
-	color: $text-primary;
-}
-
 .content {
 	color: $text-primary;
-	font-size: $text-body;
+	font-size: var(--text-body);
 }
 
 /*----- header -----*/
@@ -291,8 +288,6 @@ header nav ul,
 	img {
 		width: 100%;
 		height: 100%;
-		object-fit: cover;
-		background: pink;
 		object-position: center top;
 	}
 
@@ -318,12 +313,12 @@ header nav ul,
 .hero .slogan {
 	h1 {
 		padding-bottom: $space-sm;
-		font-size: 3.2rem;
+		font-size: var(--text-h1);
 		color: #fff;
 	}
 	p {
 		line-height: 1.2;
-		font-size: $text-h2;
+		font-size: var(--text-h2);
 	}
 	a {
 		margin-top: $space-md;
@@ -366,7 +361,7 @@ footer .content-wrapper h2,
 
 footer .content-wrapper h2,
 footer .info-wrapper h3 {
-	font-size: $text-h4;
+	font-size: var(--text-h4);
 	font-weight: normal;
 }
 
@@ -528,7 +523,7 @@ footer .info-wrapper {
 	}
 	p {
 		line-height: 1.5;
-		font-size: $text-body;
+		font-size: var(--text-body);
 		color: $text-content;
 	}
 }
@@ -544,7 +539,7 @@ footer .info-wrapper {
 	}
 	h3 {
 		text-align: center;
-		font-size: $text-h4;
+		font-size: var(--text-h4);
 		color: $text-primary;
 	}
 	img {
@@ -579,7 +574,7 @@ footer .info-wrapper {
 .home .feature ul li {
 	display: flex;
 	flex-direction: column;
-	font-size: $text-body;
+	font-size: var(--text-body);
 	img {
 		margin: $space-lg auto;
 		height: 18rem;
@@ -590,7 +585,7 @@ footer .info-wrapper {
 	}
 
 	p {
-		font-size: $text-body;
+		font-size: var(--text-body);
 		color: $text-content;
 	}
 }
@@ -621,7 +616,6 @@ footer .info-wrapper {
 		@include screen-width;
 		img {
 			height: 100%;
-			object-fit: cover;
 			border-radius: 65% 15%/15% 0% 0%;
 		}
 	}
@@ -638,7 +632,7 @@ footer .info-wrapper {
 	}
 	.content {
 		line-height: 1.4;
-		font-size: $text-body;
+		font-size: var(--text-body);
 		color: $text-content;
 	}
 }
@@ -649,59 +643,59 @@ footer .info-wrapper {
 }
 /*=== About us page ===*/
 
-.about-us main {
-	position: relative;
-	padding-bottom: $space-xl;
-
-	.illustration {
-		display: none;
-		z-index: -1;
-		position: absolute;
-		bottom: -15%;
-		left: calc(50% - 115px);
-		width: 220px;
-		img {
-			width: 100%;
-		}
-	}
-	.icon {
-		z-index: 0;
-		display: none;
-		position: absolute;
-		left: calc(50% - 140px);
-		top: 0;
-		width: 280px;
-		height: 280px;
-		background: url(assets/logo-white.png) no-repeat;
-		background-size: cover;
-	}
-}
-
 .about-us main ul {
 	position: relative;
-	display: flex;
-	justify-content: center;
-	align-items: stretch;
-	flex-direction: column;
-	gap: $space-md;
-
+	display: grid;
+	grid-template-columns: 100%;
+	grid-template-areas:
+		"text1"
+		"text3"
+		"text5";
+	padding-bottom: $space-xl;
+	h2 {
+		font-size: var(--text-h3);
+	}
 	li {
 		text-align: center;
 		background: #fff;
-		box-shadow: 3px 3px 8px #ccc;
-		img {
-			width: 4.5rem;
-			margin-bottom: $space-md;
+
+		font-size: var(--text-body);
+		color: $text-content;
+		@for $i from 1 through 6 {
+			@if $i % 2 == 0 {
+				&:nth-child(#{$i}) {
+					grid-area: image#{$i};
+				}
+			} @else {
+				&:nth-child(#{$i}) {
+					grid-area: text#{$i};
+				}
+			}
 		}
-	}
-	li:not(.illustration) {
-		padding: $space-md;
+		&:nth-child(odd) {
+			padding: $space-md;
+		}
+
+		&:nth-child(3) {
+			background: #3d625f;
+			color: #fff;
+		}
+		.icon {
+			margin-bottom: $space-sm;
+			width: 5.8rem;
+			background: #dbf5f0;
+			border-radius: 50%;
+			padding: 1rem;
+		}
+		img:not(.icon) {
+			height: 100%;
+		}
 	}
 }
 /*=== Contact us page ===*/
 .contact-us {
 	.location-map {
-		@include screen-width;
+		width: 100vw;
 	}
 	.hero img {
 		object-position: center;
@@ -741,8 +735,6 @@ footer .info-wrapper {
 		position: absolute;
 		width: 100%;
 		height: 100%;
-		-o-object-fit: cover;
-		object-fit: cover;
 		align-self: stretch;
 		filter: brightness(0.4);
 		z-index: -1;
@@ -770,7 +762,7 @@ footer .info-wrapper {
 	textarea {
 		padding: $space-sm $space-md;
 		background-color: rgba(255, 255, 255, 0.8);
-		font-size: $text-h3;
+		font-size: var(--text-h3);
 		border-radius: $border-radius;
 		border: none;
 	}
@@ -803,17 +795,20 @@ footer .info-wrapper {
 	border: 0;
 	margin: $space-lg 0;
 	padding: $space-sm $space-md;
-	font-size: $text-h3;
+	font-size: var(--text-h3);
 	color: #fff;
 	background: $highline;
 	border-radius: $border-radius;
 }
 /* Medium devices (vertical ipads, 768px and up) */
 @media only screen and (min-width: 768px) {
-	$text-h2: 3.2rem;
-	$text-h3: 2.6rem;
-	$text-h4: 2.2rem;
-	$text-body: 1.8rem;
+	:root {
+		--text-h1: 3.6rem;
+		--text-h2: 3.2rem;
+		--text-h3: 2.6rem;
+		--text-h4: 2.2rem;
+		--text-body: 1.8rem;
+	}
 
 	header {
 		padding: $space-sm $space-lg;
@@ -838,9 +833,6 @@ footer .info-wrapper {
 
 	/*----- hero -----*/
 	.hero {
-		h1 {
-			font-size: 3.6rem;
-		}
 		p {
 			font-size: 2.2rem;
 		}
@@ -910,10 +902,18 @@ footer .info-wrapper {
 	.about-us main {
 		padding-top: $space-xl;
 		ul {
-			flex-direction: row;
-			flex-wrap: wrap;
-			li {
-				flex-basis: calc(50% - $space-md);
+			grid-template-columns: repeat(2, 1fr);
+			grid-template-areas:
+				"text1 image2"
+				"image4 text3"
+				"text5 image6";
+			li,
+			li:nth-child(3) {
+				background: #fff;
+				color: $text-content;
+			}
+			li:nth-child(even) {
+				display: block;
 			}
 		}
 	}
@@ -944,6 +944,12 @@ footer .info-wrapper {
 
 /* Large devices (desktops, 1024px and up) */
 @media screen and (min-width: 1024px) {
+	:root {
+		--text-h1: 4.2rem;
+		--text-h2: 3.8rem;
+		--text-h3: 2.8rem;
+		--text-h4: 2.4rem;
+	}
 	/*=== nav ===*/
 	header {
 		nav {
@@ -1008,7 +1014,6 @@ footer .info-wrapper {
 		.hero-wrapper {
 			height: min(95vh, 780px);
 		}
-
 		.slogan {
 			right: 5%;
 			width: min(40vw, 600px);
@@ -1042,24 +1047,13 @@ footer .info-wrapper {
 	}
 	/*=== About us page ===*/
 
-	.about-us main {
+	.about-us main ul {
+		grid-template-columns: repeat(3, 1fr);
+		grid-template-areas:
+			"text1 image2 text3"
+			"image4 text5 image6";
 		li {
 			text-align: left;
-			background: transparent;
-			box-shadow: none;
-			img:not(.illustration) {
-				display: none;
-			}
-
-			li:not(.illustration) {
-				padding: $space-md 10rem;
-			}
-		}
-		.icon {
-			display: none;
-		}
-		.illustration {
-			display: block;
 		}
 	}
 	/*=== Contact us page ===*/
@@ -1068,8 +1062,6 @@ footer .info-wrapper {
 			flex-direction: row;
 			.location-map {
 				width: min(600px, 50vw);
-				margin-inline-start: unset;
-				transform: unset;
 			}
 			.content {
 				padding: 0 $space-lg;
