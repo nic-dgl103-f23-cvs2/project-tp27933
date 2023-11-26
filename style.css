@@ -826,6 +826,18 @@ footer .info-wrapper .copy-right {
     flex: 1;
   }
   /*=== Home page ===*/
+  /*----- hero -----*/
+  .home .hero-desktop {
+    display: block;
+  }
+  .home .hero-mobile {
+    display: none;
+  }
+  .home .hero .slogan {
+    right: 5%;
+    width: min(40vw, 600px);
+    text-align: right;
+  }
   .home .intro {
     display: flex;
     align-items: center;
@@ -935,13 +947,6 @@ footer .info-wrapper .copy-right {
   .contact-us .hero {
     height: 320px;
   }
-  /*----- hero -----*/
-  .hero-desktop {
-    display: block;
-  }
-  .hero-mobile {
-    display: none;
-  }
   footer,
   footer .footer-wrapper,
   footer .info-wrapper {
@@ -968,11 +973,6 @@ footer .info-wrapper .copy-right {
   /*=== Home page ===*/
   .home .hero-wrapper {
     height: min(95vh, 780px);
-  }
-  .home .slogan {
-    right: 5%;
-    width: min(40vw, 600px);
-    text-align: right;
   }
   /*----- intro -----*/
   .home .intro {

@@ -869,6 +869,20 @@ footer .info-wrapper {
 	}
 
 	/*=== Home page ===*/
+	/*----- hero -----*/
+	.home .hero {
+		&-desktop {
+			display: block;
+		}
+		&-mobile {
+			display: none;
+		}
+		.slogan {
+			right: 5%;
+			width: min(40vw, 600px);
+			text-align: right;
+		}
+	}
 	.home .intro {
 		@include align-center;
 		flex-wrap: wrap;
@@ -985,15 +999,6 @@ footer .info-wrapper {
 	.contact-us .hero {
 		height: 320px;
 	}
-	/*----- hero -----*/
-	.hero {
-		&-desktop {
-			display: block;
-		}
-		&-mobile {
-			display: none;
-		}
-	}
 
 	footer,
 	footer .footer-wrapper,
@@ -1023,11 +1028,6 @@ footer .info-wrapper {
 	.home {
 		.hero-wrapper {
 			height: min(95vh, 780px);
-		}
-		.slogan {
-			right: 5%;
-			width: min(40vw, 600px);
-			text-align: right;
 		}
 	}
 
