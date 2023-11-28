@@ -42,6 +42,27 @@ $border-radius: 6px !default;
 	margin-inline-start: 50%;
 	transform: translateX(-50%);
 }
+@mixin hover-effect {
+	position: relative;
+	&::after {
+		content: " ";
+		display: inline-block;
+		position: absolute;
+		bottom: -5px;
+		left: 50%;
+		width: 0%;
+		height: 2px;
+		background-color: $highline;
+		transition: all 0.2s ease-in-out;
+	}
+	&:hover {
+		&::after {
+			content: " ";
+			width: 100%;
+			left: 0;
+		}
+	}
+}
 $animation_el: (
 	1: (
 		top: 10%,
@@ -183,7 +204,13 @@ a {
 	display: inline-block;
 	background-color: transparent;
 }
-
+input,
+textarea {
+	outline: none;
+}
+textarea {
+	resize: none;
+}
 img {
 	display: inline-block;
 	max-width: 100%;
@@ -203,16 +230,15 @@ a {
 	position: relative;
 	display: inline-block;
 	margin-bottom: $space-lg;
-}
-
-.bottom-line::after {
-	content: "";
-	position: absolute;
-	left: 40%;
-	bottom: calc($space-xs * -1);
-	width: min(30%, 10rem);
-	height: 5px;
-	background: $highline;
+	&::after {
+		content: "";
+		position: absolute;
+		left: 40%;
+		bottom: calc($space-xs * -1);
+		width: min(30%, 10rem);
+		height: 5px;
+		background: $highline;
+	}
 }
 
 .content {
@@ -257,21 +283,25 @@ header .icon-menu {
 		font-size: 2.2rem;
 	}
 }
-.window .social-media {
-	margin-top: $space-lg;
-}
 
 header nav ul,
 .window nav ul {
 	display: flex;
 	gap: $space-lg;
 	text-align: center;
+	a {
+		@include hover-effect;
+	}
 }
-.window nav ul {
-	flex-direction: column;
-	padding: $space-lg 0;
+.window {
+	.social-media {
+		margin-top: $space-lg;
+	}
+	nav ul {
+		flex-direction: column;
+		padding: $space-lg 0;
+	}
 }
-
 /*----- hero -----*/
 .hero-wrapper {
 	position: relative;
@@ -395,6 +425,9 @@ footer .info-wrapper {
 	width: 100%;
 	li {
 		margin-top: $space-md;
+	}
+	a {
+		@include hover-effect;
 	}
 }
 /*=== nav modal ===*/
@@ -778,9 +811,14 @@ footer .info-wrapper {
 	textarea {
 		padding: $space-sm $space-md;
 		background-color: rgba(255, 255, 255, 0.8);
-		font-size: var(--text-h3);
+		font-size: var(--text-body);
 		border-radius: $border-radius;
-		border: none;
+		border: 1px solid transparent;
+		transition: border 0.4s ease-out;
+		&:focus {
+			border-color: $neutral;
+			box-shadow: 0 0 8px rgba($highline, $alpha: 0.5);
+		}
 	}
 	label {
 		margin-top: $space-md;
