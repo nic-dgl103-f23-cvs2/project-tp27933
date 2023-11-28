@@ -93,90 +93,95 @@ $animation_el: (
 		left: 75%,
 	),
 );
+/*--- ideally the the line of between point to point 
+ is calculated dynamically by using javascript but I am not
+ sure are we allowed to use javascript in this project, so
+ I use the fixed container size and calculated by js first then using the calculated results.
+---*/
 $animation_line: (
 	1: (
-		top: 35%,
-		left: 12%,
-		width: 30%,
-		transform: rotate(2rad),
+		top: 185.5px,
+		left: 71.82px,
+		width: 184.36px,
+		transform: rotate(1.89rad),
 	),
 	2: (
-		top: 43%,
-		left: 16%,
-		width: 40%,
-		transform: rotate(1.44rad),
+		top: 255px,
+		left: 55.8px,
+		width: 301.4px,
+		transform: rotate(1.47rad),
 	),
 	3: (
-		top: 67%,
-		left: 16%,
-		width: 25%,
-		transform: rotate(0.81rad),
+		top: 335.5px,
+		left: 102.35px,
+		width: 152.3px,
+		transform: rotate(0.96rad),
 	),
 	4: (
-		top: 28%,
-		left: 30%,
-		width: 25%,
-		transform: rotate(-2.56rad),
+		top: 143px,
+		left: 175.55px,
+		width: 133.49px,
+		transform: rotate(-2.4rad),
 	),
 	5: (
-		top: 44%,
-		left: 20%,
-		width: 35%,
-		transform: rotate(2.77rad),
+		top: 143px,
+		left: 175.55px,
+		width: 133.49px,
+		transform: rotate(-2.4rad),
 	),
 	6: (
-		top: 59%,
-		left: 25%,
-		width: 35%,
-		transform: rotate(2rad),
+		top: 230.5px,
+		left: 124.21px,
+		width: 178.18px,
+		transform: rotate(2.64rad),
 	),
 	7: (
-		top: 68%,
-		left: 35%,
-		width: 31%,
-		transform: rotate(2.68rad),
+		top: 293px,
+		left: 146.18px,
+		width: 221.23px,
+		transform: rotate(1.89rad),
 	),
 	8: (
-		top: 20%,
-		left: 32%,
-		width: 50%,
-		transform: rotate(-3.07rad),
+		top: 243px,
+		left: 262.61px,
+		width: 133.36px,
+		transform: rotate(-2.17rad),
 	),
 	9: (
-		top: 30%,
-		left: 47%,
-		width: 35%,
-		transform: rotate(2.86rad),
+		top: 110.5px,
+		left: 192.4px,
+		width: 262.19px,
+		transform: rotate(-3.05rad),
 	),
 	10: (
-		top: 38%,
-		left: 58%,
-		width: 30%,
-		transform: rotate(2.17rad),
+		top: 155.5px,
+		left: 285.33px,
+		width: 174.93px,
+		transform: rotate(2.76rad),
 	),
 	11: (
-		top: 67%,
-		left: 60%,
-		width: 25%,
-		transform: rotate(-2.7rad),
+		top: 210.5px,
+		left: 312.78px,
+		width: 195.43px,
+		transform: rotate(2.03rad),
 	),
 	12: (
-		top: 48%,
-		left: 61%,
-		width: 40%,
-		transform: rotate(-1.73rad),
+		top: 335.5px,
+		left: 355.93px,
+		width: 138.13px,
+		transform: rotate(-2.57rad),
 	),
 	13: (
-		top: 77%,
-		left: 40%,
-		width: 40%,
-		transform: rotate(3.07rad),
+		top: 248px,
+		left: 342.66px,
+		width: 251.68px,
+		transform: rotate(-1.69rad),
 	),
 	14: (
-		top: 48%,
-		left: 46%,
-		width: 23%,
-		transform: rotate(-2.33rad),
+		top: 385.5px,
+		left: 221.4px,
+		width: 262.19px,
+		transform: rotate(3.05rad),
 	),
 );
 
@@ -335,7 +340,7 @@ header nav ul,
 		position: absolute;
 		top: 10%;
 		padding: $space-md;
-		width: 90%;
+		width: min(70%, 450px);
 		color: #fff;
 	}
 }
@@ -346,8 +351,8 @@ header nav ul,
 		color: #fff;
 	}
 	p {
-		line-height: 1.2;
-		font-size: var(--text-h2);
+		line-height: 1.4;
+		font-size: var(--text-h3);
 	}
 	a {
 		margin-top: $space-md;
@@ -925,7 +930,7 @@ footer .info-wrapper {
 		}
 		.slogan {
 			right: 5%;
-			width: min(40vw, 600px);
+			width: min(40vw, 520px);
 			text-align: right;
 		}
 	}
@@ -1014,7 +1019,7 @@ footer .info-wrapper {
 @media screen and (min-width: 1200px) {
 	:root {
 		--text-h1: 4.2rem;
-		--text-h2: 3.8rem;
+		--text-h2: 3.2rem;
 		--text-h3: 2.8rem;
 		--text-h4: 2.4rem;
 
