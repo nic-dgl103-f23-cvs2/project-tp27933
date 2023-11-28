@@ -604,8 +604,16 @@ footer .info-wrapper {
 
 /*----- call-to-action -----*/
 .home .call-to-action {
+	position: relative;
 	margin-top: $space-xl;
 	text-align: center;
+	.logo {
+		z-index: -1;
+		position: absolute;
+		width: 22rem;
+		object-fit: contain;
+		opacity: 0.3;
+	}
 	.action_btn {
 		display: inline-block;
 		margin-top: $space-md;
