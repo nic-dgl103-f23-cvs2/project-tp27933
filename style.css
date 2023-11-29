@@ -126,17 +126,18 @@ header .icon-menu .icon {
 }
 
 header nav ul,
-.window nav ul {
+.modal nav ul {
   display: flex;
   gap: 4.8rem;
   text-align: center;
+  font-size: var(--text-h4);
 }
 header nav ul a,
-.window nav ul a {
+.modal nav ul a {
   position: relative;
 }
 header nav ul a::after,
-.window nav ul a::after {
+.modal nav ul a::after {
   content: " ";
   display: inline-block;
   position: absolute;
@@ -148,16 +149,20 @@ header nav ul a::after,
   transition: all 0.2s ease-in-out;
 }
 header nav ul a:hover::after,
-.window nav ul a:hover::after {
+.modal nav ul a:hover::after {
   content: " ";
   width: 100%;
   left: 0;
 }
 
-.window .social-media {
+.modal .social-media {
   margin-top: 4.8rem;
 }
-.window nav ul {
+.modal .social-media img {
+  margin-right: 1.6rem;
+  width: 3rem;
+}
+.modal nav ul {
   flex-direction: column;
   padding: 4.8rem 0;
 }
@@ -304,34 +309,43 @@ footer .info-wrapper a:hover::after {
 }
 
 /*=== nav modal ===*/
-.window {
+.modal {
   overflow: hidden;
   position: fixed;
-  inset: 0;
+  right: 0;
+  top: 0;
   background-color: rgba(0, 0, 0, 0.7);
   z-index: 999;
+  width: 100%;
+  height: 100%;
   text-align: center;
   transition: 0.5s ease-in-out;
-  height: 0;
+  transform: translateX(100%);
+  opacity: 0;
 }
-.window:target {
-  min-height: 800px;
-}
-.window_content {
-  position: relative;
-  width: 100vw;
+.modal_content {
+  margin-left: auto;
+  width: 90vw;
+  height: 100%;
   padding: 4.8rem;
   background-color: rgb(3, 59, 46);
-  transition: 0.5s ease-in-out;
 }
-.window .icon-close {
+.modal .icon-close {
   position: absolute;
   top: 5%;
   right: 5%;
   color: #fff;
 }
-.window .icon-close .icon {
+.modal .icon-close .icon {
   font-size: 3.6rem;
+}
+.modal .logo {
+  width: 4rem;
+}
+
+.show-menu {
+  transform: translateX(0);
+  opacity: 1;
 }
 
 /*=== Home page ===*/
@@ -571,12 +585,13 @@ footer .info-wrapper a:hover::after {
 }
 .home .feature > ul {
   display: flex;
-  flex-wrap: wrap;
+  overflow-x: auto;
   gap: 2rem;
 }
 .home .feature > ul > li {
   width: 100%;
   flex-grow: 1;
+  min-width: 90%;
   padding: 2.4rem;
   background: #fff;
   border-radius: 6px;
@@ -615,6 +630,49 @@ footer .info-wrapper a:hover::after {
   mask: radial-gradient(126.18px at 50% calc(100% - 171px), #000 99%, rgba(0, 0, 0, 0) 101%) calc(50% - 120px) 0/240px 100%, radial-gradient(126.18px at 50% calc(100% + 111px), rgba(0, 0, 0, 0) 99%, #000 101%) 50% calc(100% - 60px)/240px 100% repeat-x;
   background: #04473a;
   border: none;
+}
+
+/*----- how-it-works -----*/
+.how-it-work {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin: 14.4rem 0;
+}
+.how-it-work .iframe-container {
+  width: 100%;
+}
+.how-it-work .iframe-wrapper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 ratio */
+}
+.how-it-work .iframe-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.how-it-work .content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 0 2.4rem;
+}
+
+.how-it-work .content .title {
+  color: rgba(3, 59, 46, 0.5);
+}
+.how-it-work .content p {
+  margin: 2.4rem 0;
+  font-size: var(--text-h1);
+}
+.how-it-work .content .icon {
+  vertical-align: middle;
+  margin-right: 0.4rem;
 }
 
 /*----- call-to-action -----*/
@@ -870,7 +928,7 @@ footer .info-wrapper a:hover::after {
     height: min(40vh, 320px);
   }
   /*----- nav -----*/
-  .window nav ul {
+  .modal nav ul {
     padding: 4.8rem 0;
   }
   /*----- hero -----*/
@@ -923,9 +981,20 @@ footer .info-wrapper a:hover::after {
   .home .intro .content {
     flex: 1;
   }
+  /*----- how-it-works -----*/
+  .home .how-it-work {
+    flex-direction: row;
+  }
+  .home .how-it-work .iframe-container {
+    width: 50%;
+  }
   /*----- features -----*/
+  .home .feature > ul {
+    flex-wrap: wrap;
+  }
   .home .feature > ul > li {
     width: calc(50% - 2rem);
+    min-width: unset;
   }
   /*----- call-to-actions -----*/
   .home .call-to-action {
@@ -1008,7 +1077,7 @@ footer .info-wrapper a:hover::after {
     display: block;
   }
   header .icon-menu,
-  .window {
+  .modal {
     display: none;
   }
   .about-us .hero,
@@ -1062,6 +1131,9 @@ footer .info-wrapper a:hover::after {
   }
   .home .feature > ul > li {
     width: 30%;
+  }
+  .home .how-it-work .iframe-container {
+    width: min(950px, 60%);
   }
   /*=== About us page ===*/
   .about-us main ul {

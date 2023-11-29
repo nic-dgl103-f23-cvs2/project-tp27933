@@ -26,7 +26,7 @@
 			<header>
 				<img class="logo" src="assets/logo-white.png" alt="handshake-heart" />
 
-				<a class="icon-menu" href="#window">
+				<a class="icon-menu" onclick="showNav()">
 					<span class="icon material-symbols-outlined">menu</span>
 				</a>
 				<nav>
@@ -136,10 +136,10 @@
 		</footer>
 
 		<!-- mobile nav modal -->
-		<div id="window" class="window">
-			<div class="window_bg"></div>
-			<div class="window_content">
-				<a class="icon-close" href="#modal">
+		<div id="modal" class="modal">
+			<div class="modal_bg"></div>
+			<div class="modal_content">
+				<a class="icon-close" onclick="hideNav()">
 					<span class="icon material-symbols-outlined"> close </span>
 				</a>
 
@@ -158,5 +158,24 @@
 				</div>
 			</div>
 		</div>
+		<script>
+			function showNav() {
+				const icon = document.querySelector(".icon-menu");
+				const modal = document.querySelector("#modal");
+				icon.addEventListener("click", (e) => {
+					modal.classList.add("show-menu");
+					e.preventDefault();
+				});
+			}
+			function hideNav() {
+				console.log("click");
+				const closeIcon = document.querySelector(".modal .icon-close");
+				const modal = document.querySelector("#modal");
+				closeIcon.addEventListener("click", (e) => {
+					modal.classList.remove("show-menu");
+					e.preventDefault();
+				});
+			}
+		</script>
 	</body>
 </html>
