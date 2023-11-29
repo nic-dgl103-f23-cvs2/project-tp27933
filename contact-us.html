@@ -182,26 +182,28 @@
 		<!-- mobile nav modal -->
 		<div id="modal" class="modal">
 			<div class="modal_bg"></div>
-			<div class="modal_content">
-				<a class="icon-close" onclick="hideNav()">
-					<span class="icon material-symbols-outlined"> close </span>
-				</a>
+			<nav class="modal_content">
+				<div class="modal_content_top">
+					<img class="logo" src="assets/logo-white.svg" />
+					<a class="icon-close" onclick="hideNav()">
+						<span class="icon material-symbols-outlined"> close </span>
+					</a>
+				</div>
 
-				<nav>
-					<ul>
-						<li><a href="/">Home</a></li>
-						<li><a href="about-us.html">About Us</a></li>
-						<li><a href="contact-us.html">Contact Us</a></li>
-					</ul>
-				</nav>
-				<hr />
+				<ul>
+					<li><a href="/">Home</a></li>
+					<li><a href="about-us.html">About Us</a></li>
+					<li><a href="contact-us.html">Contact Us</a></li>
+				</ul>
+
 				<div class="social-media">
 					<img src="assets/facebook.svg" />
 					<img src="assets/instagram.svg" />
 					<img src="assets/twitter.svg" />
 				</div>
-			</div>
+			</nav>
 		</div>
+
 		<script>
 			function showNav() {
 				const icon = document.querySelector(".icon-menu");

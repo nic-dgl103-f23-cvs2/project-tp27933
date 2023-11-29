@@ -351,18 +351,58 @@ header {
 		}
 	}
 }
+
+/*=== nav modal ===*/
 .modal {
-	.social-media {
-		margin-top: $space-lg;
-		img {
-			margin-right: $space-sm;
-			width: 3rem;
-		}
+	overflow: hidden;
+	position: fixed;
+	right: 0;
+	top: 0;
+	background-color: rgba(0, 0, 0, 0.7);
+	z-index: 999;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	transition: 0.5s ease-in-out;
+	transform: translateX(100%);
+	opacity: 0;
+	&_content {
+		margin-left: auto;
+		width: 90vw;
+		height: 100%;
+		padding: $space-md $space-lg;
+		background-color: rgb(3, 59, 46);
 	}
-	nav ul {
+	&_content_top {
+		display: flex;
+		justify-content: space-between;
+	}
+	.icon-close {
+		color: #fff;
+		font-size: 3.6rem;
+	}
+	.logo {
+		width: 3.2rem;
+		object-fit: contain;
+	}
+	ul {
 		flex-direction: column;
+		margin: $space-md 0;
 		padding: $space-lg 0;
+		border-top: 1px solid #fff;
+		border-bottom: 1px solid #fff;
 	}
+	li {
+		text-align: right;
+	}
+	.social-media img {
+		margin-right: $space-sm;
+		width: 3rem;
+	}
+}
+.show-menu {
+	transform: translateX(0);
+	opacity: 1;
 }
 /*----- hero -----*/
 .hero-wrapper {
@@ -538,47 +578,6 @@ footer .info-wrapper {
 		@include hover-effect;
 		color: #fff;
 	}
-}
-/*=== nav modal ===*/
-
-.modal {
-	overflow: hidden;
-	position: fixed;
-	right: 0;
-	top: 0;
-	background-color: rgba(0, 0, 0, 0.7);
-	z-index: 999;
-	width: 100%;
-	height: 100%;
-	text-align: center;
-	transition: 0.5s ease-in-out;
-	transform: translateX(100%);
-	opacity: 0;
-	&_content {
-		margin-left: auto;
-		width: 90vw;
-		height: 100%;
-		padding: $space-lg;
-		background-color: rgb(3, 59, 46);
-	}
-
-	.icon-close {
-		position: absolute;
-		top: 5%;
-		right: 5%;
-		color: #fff;
-
-		.icon {
-			font-size: 3.6rem;
-		}
-	}
-	.logo {
-		width: 4rem;
-	}
-}
-.show-menu {
-	transform: translateX(0);
-	opacity: 1;
 }
 
 /*=== Home page ===*/
@@ -1023,6 +1022,9 @@ footer .info-wrapper {
 .contact-us {
 	.location-map {
 		width: 100vw;
+		@include pad {
+			width: 50%;
+		}
 		@include pc {
 			width: min(720px, 50vw);
 		}
@@ -1033,6 +1035,7 @@ footer .info-wrapper {
 	.info {
 		@include flex-center();
 		flex-direction: column;
+		flex-wrap: wrap;
 		@include pad {
 			flex-direction: row;
 		}
@@ -1040,6 +1043,7 @@ footer .info-wrapper {
 }
 .contact-us .info .content {
 	flex: 1;
+	padding: 0 $space-md;
 	@include pc {
 		padding: 0 $space-lg;
 	}
@@ -1097,7 +1101,7 @@ footer .info-wrapper {
 
 .contact-us form {
 	margin-top: $space-md;
-	padding: $space-sm;
+	padding: $space-lg $space-sm;
 	width: 100%;
 	@include pad {
 		margin-top: 0;
