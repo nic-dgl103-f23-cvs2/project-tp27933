@@ -26,14 +26,14 @@
 			<header>
 				<img class="logo" src="assets/logo-white.png" alt="handshake-heart" />
 
-				<a class="icon-menu" onclick="showNav()">
+				<a class="icon-menu">
 					<span class="icon material-symbols-outlined">menu</span>
 				</a>
 				<nav>
 					<ul>
 						<li><a href="index.html">Home</a></li>
 						<li><a href="about-us.html">About Us</a></li>
-						<li><a href="contact-us.html">Contact Us</a></li>
+						<li><a class="active-page" href="contact-us.html">Contact Us</a></li>
 					</ul>
 				</nav>
 				<div class="social-media">
@@ -185,15 +185,15 @@
 			<nav class="modal_content">
 				<div class="modal_content_top">
 					<img class="logo" src="assets/logo-white.svg" />
-					<a class="icon-close" onclick="hideNav()">
+					<a class="icon-close">
 						<span class="icon material-symbols-outlined"> close </span>
 					</a>
 				</div>
 
 				<ul>
-					<li><a href="/">Home</a></li>
+					<li><a href="index.html">Home</a></li>
 					<li><a href="about-us.html">About Us</a></li>
-					<li><a href="contact-us.html">Contact Us</a></li>
+					<li><a class="active-page" href="contact-us.html">Contact Us</a></li>
 				</ul>
 
 				<div class="social-media">
@@ -205,22 +205,19 @@
 		</div>
 
 		<script>
-			function showNav() {
-				const icon = document.querySelector(".icon-menu");
-				const modal = document.querySelector("#modal");
-				icon.addEventListener("click", (e) => {
-					modal.classList.add("show-menu");
-					e.preventDefault();
-				});
-			}
-			function hideNav() {
-				const closeIcon = document.querySelector(".modal .icon-close");
-				const modal = document.querySelector("#modal");
-				closeIcon.addEventListener("click", (e) => {
-					modal.classList.remove("show-menu");
-					e.preventDefault();
-				});
-			}
+			const icon = document.querySelector(".icon-menu");
+			const modal = document.querySelector("#modal");
+			const closeIcon = document.querySelector(".modal .icon-close");
+
+			icon.addEventListener("click", (e) => {
+				modal.classList.add("show-menu");
+				e.preventDefault();
+			});
+
+			closeIcon.addEventListener("click", (e) => {
+				modal.classList.remove("show-menu");
+				e.preventDefault();
+			});
 		</script>
 	</body>
 </html>

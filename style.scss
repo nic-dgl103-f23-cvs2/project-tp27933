@@ -261,7 +261,9 @@ li {
 a {
 	text-decoration: none;
 }
-
+address {
+	font-style: normal;
+}
 .bottom-line {
 	position: relative;
 	display: inline-block;
@@ -294,8 +296,17 @@ header nav ul,
 	gap: $space-lg;
 	text-align: center;
 	font-size: var(--text-h4);
+	li:has(a.active-page) {
+		a {
+			color: $primary;
+			background: $highline;
+			border-radius: $border-radius;
+		}
+	}
 	a {
 		@include hover-effect;
+		padding: $space-xs $space-sm;
+		border-radius: $border-radius;
 		color: #fff;
 	}
 }
@@ -961,6 +972,9 @@ footer .info-wrapper {
 			text-align: left;
 		}
 	}
+	img:not(.icon) {
+		width: 100%;
+	}
 }
 
 .about-us main ul {
@@ -997,6 +1011,7 @@ footer .info-wrapper {
 			color: #fff;
 		}
 		@include pad {
+			text-align: left;
 			&,
 			&:nth-child(3) {
 				background: #fff;

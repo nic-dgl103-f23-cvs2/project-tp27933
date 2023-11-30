@@ -87,6 +87,10 @@ a {
   text-decoration: none;
 }
 
+address {
+  font-style: normal;
+}
+
 .bottom-line {
   position: relative;
   display: inline-block;
@@ -120,9 +124,17 @@ header nav ul,
   text-align: center;
   font-size: var(--text-h4);
 }
+header nav ul li:has(a.active-page) a,
+.modal nav ul li:has(a.active-page) a {
+  color: #033b2e;
+  background: #1acda3;
+  border-radius: 6px;
+}
 header nav ul a,
 .modal nav ul a {
   position: relative;
+  padding: 0.4rem 1.6rem;
+  border-radius: 6px;
   color: #fff;
 }
 header nav ul a::after,
@@ -967,6 +979,9 @@ footer .info-wrapper a:hover::after {
     text-align: left;
   }
 }
+.about-us main ul img:not(.icon) {
+  width: 100%;
+}
 
 .about-us main ul h2 {
   margin-bottom: 2.4rem;
@@ -1007,6 +1022,9 @@ footer .info-wrapper a:hover::after {
   color: #fff;
 }
 @media only screen and (min-width: 768px) {
+  .about-us main ul li {
+    text-align: left;
+  }
   .about-us main ul li, .about-us main ul li:nth-child(3) {
     background: #fff;
     color: #696b6a;
