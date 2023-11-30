@@ -5,7 +5,7 @@
   --text-h1: 3.2rem;
   --text-h2: 2.8rem;
   --text-h3: 2.4rem;
-  --text-h4: 1.8rem;
+  --text-h4: 2rem;
   --text-body: 1.6rem;
   --max-width: min(90%, 540px);
 }
@@ -31,10 +31,8 @@
 
 /* Medium devices (vertical ipads, 768px and up) */
 /* Large devices (desktops, 1200px and up) */
-/*--- ideally the the line of between point to point 
- is calculated dynamically by using javascript but I am not
- sure are we allowed to use javascript in this project, so
- I use the fixed container size and calculated by js first then using the calculated results.
+/*--- 
+ I use the fixed container size and calculated by js first then using the calculated line params between line to line.
 ---*/
 /*=== general ===*/
 * {
@@ -174,6 +172,7 @@ header .logo {
 header .icon-menu {
   display: inline-block;
   margin-left: auto;
+  cursor: pointer;
 }
 header .icon-menu .icon {
   color: #fff;
@@ -189,7 +188,8 @@ header .social-media img {
   }
   header .logo,
   header .icon-menu .icon {
-    width: 2.8rem;
+    width: 3.2rem;
+    height: 3.2rem;
   }
 }
 @media only screen and (min-width: 1200px) {
@@ -200,8 +200,8 @@ header .social-media img {
     padding: 0;
   }
   header .logo {
-    width: 3.6rem;
-    height: 3.6rem;
+    width: 4.2rem;
+    height: 4.2rem;
   }
   header .icon-menu,
   header .modal {
@@ -223,7 +223,6 @@ header .social-media img {
   width: 100%;
   height: 100%;
   text-align: center;
-  transition: 0.3s ease-in-out;
   opacity: 0;
 }
 .modal_content {
@@ -242,6 +241,7 @@ header .social-media img {
 .modal .icon-close {
   color: #fff;
   font-size: 3.6rem;
+  cursor: pointer;
 }
 .modal .logo {
   width: 3.2rem;
@@ -279,6 +279,7 @@ header .social-media img {
 
 .hero {
   height: 100%;
+  text-shadow: 1px 1px 2px #033b2e;
 }
 .hero-desktop {
   display: none;
@@ -312,10 +313,16 @@ header .social-media img {
   }
 }
 
-.hero .slogan h1 {
+.hero .slogan .title {
   padding-bottom: 1.6rem;
   font-size: var(--text-h1);
   color: #fff;
+}
+.hero .slogan .title span {
+  display: block;
+}
+.hero .slogan .title--highline {
+  color: #1acda3;
 }
 .hero .slogan p {
   line-height: 1.4;
@@ -326,8 +333,9 @@ header .social-media img {
   padding: 1.6rem 2.4rem;
   color: #fff;
   font-size: 1.2rem;
-  border-radius: 6px;
   background: #1acda3;
+  border-radius: 6px;
+  text-shadow: none;
 }
 
 .about-us .hero,
@@ -376,19 +384,21 @@ footer .info-wrapper,
 footer .content-wrapper h2,
 footer .copy-right {
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
-  gap: 1.2rem;
+  justify-content: center;
 }
 @media only screen and (min-width: 1200px) {
   footer,
   footer .footer-wrapper,
   footer .info-wrapper {
     flex-direction: row;
-    align-items: flex-start;
     justify-content: flex-start;
   }
+}
+footer .contact-info {
+  gap: 1rem;
+  justify-content: flex-start;
+  padding-left: 4.8rem;
 }
 footer .info-wrapper nav,
 footer .info-wrapper .contact-info {
@@ -401,25 +411,35 @@ footer .info-wrapper h3 {
 }
 
 footer .footer-wrapper {
+  gap: 2.2rem;
   margin: 0 auto;
   width: var(--max-width);
   margin: 0 auto;
   text-align: center;
 }
+footer .footer-wrapper .title {
+  align-items: center;
+  margin-top: 2.4rem;
+  color: #fff;
+  font-weight: 700;
+}
 @media only screen and (min-width: 1200px) {
   footer .footer-wrapper {
     margin-bottom: 0;
   }
-}
-footer .footer-wrapper .title {
-  margin-top: 2.4rem;
-  margin-bottom: 1.6rem;
-  color: #fff;
+  footer .footer-wrapper .title {
+    margin-top: 0;
+  }
 }
 
+footer .content-wrapper {
+  line-height: 1.8;
+}
 @media only screen and (min-width: 1200px) {
   footer .content-wrapper {
-    width: 40%;
+    flex: 1;
+    padding-right: 7.2rem;
+    border-right: 2px solid #fff;
   }
   footer .content-wrapper .title {
     flex-direction: row;
@@ -427,6 +447,12 @@ footer .footer-wrapper .title {
 }
 footer .content-wrapper img {
   width: 3.2rem;
+  margin: 0.4rem;
+}
+@media only screen and (min-width: 1200px) {
+  footer .content-wrapper img {
+    margin: 1.6rem;
+  }
 }
 footer .content-wrapper .social-media {
   margin-top: 2.4rem;
@@ -434,22 +460,21 @@ footer .content-wrapper .social-media {
 
 footer .info-wrapper {
   width: 100%;
+  gap: 2.2rem;
 }
 @media only screen and (min-width: 768px) {
   footer .info-wrapper {
     margin-top: 4.8rem;
     flex-direction: row;
   }
-  footer .info-wrapper .contact-info {
-    border-left: 2px solid #fff;
+  footer .info-wrapper nav {
+    border-right: 2px solid #fff;
   }
 }
 @media only screen and (min-width: 1200px) {
   footer .info-wrapper {
     margin-top: 0;
-  }
-  footer .info-wrapper .contact-info {
-    border-width: 0;
+    width: 50%;
   }
 }
 footer .info-wrapper li {
@@ -478,8 +503,9 @@ footer .info-wrapper a:hover::after {
 
 /*=== Home page ===*/
 .home .hero-wrapper {
-  height: 700px;
   max-height: 90vh;
+  min-height: 560px;
+  height: 700px;
 }
 @media only screen and (min-width: 1200px) {
   .home .hero-wrapper {
@@ -500,6 +526,7 @@ footer .info-wrapper a:hover::after {
   }
 }
 
+/*----- intro -----*/
 .home .element {
   z-index: 2;
   position: absolute;
@@ -684,7 +711,6 @@ footer .info-wrapper a:hover::after {
     width: 100%;
   }
 }
-/*----- intro -----*/
 .home .intro {
   margin-top: 4.8rem;
   padding: 4.8rem 0;
@@ -781,11 +807,6 @@ footer .info-wrapper a:hover::after {
   text-decoration: underline;
 }
 
-.home .feature .feature-list {
-  flex: 1;
-  padding-bottom: 2.4rem;
-}
-
 @media only screen and (min-width: 768px) {
   .home .feature > ul {
     flex-wrap: wrap;
@@ -803,21 +824,23 @@ footer .info-wrapper a:hover::after {
     padding: 7.2rem;
   }
 }
-.home .feature ul li {
-  display: flex;
-  flex-direction: column;
-  font-size: var(--text-body);
-}
 .home .feature ul li img {
   margin: 4.8rem auto;
   height: 18rem;
 }
-.home .feature ul li:last-child img {
-  border-radius: 12px;
-}
-.home .feature ul li p {
+
+.home .feature .feature-list {
+  margin: 0 2.4rem;
+  padding-bottom: 2.4rem;
+  list-style-type: square;
+  text-align: left;
   font-size: var(--text-body);
   color: #696b6a;
+}
+@media only screen and (min-width: 768px) {
+  .home .feature .feature-list {
+    margin: 0 4.8rem;
+  }
 }
 
 /* wave style refer from https://css-generators.com/wavy-shapes/ */
@@ -872,15 +895,23 @@ footer .info-wrapper a:hover::after {
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  padding: 0 2.4rem;
+  padding: 7.2rem;
+}
+@media only screen and (min-width: 768px) {
+  .how-it-work .content {
+    padding: 4.8rem;
+  }
 }
 
 .how-it-work .content .title {
-  color: rgba(3, 59, 46, 0.5);
+  margin-bottom: 0;
+  color: rgba(3, 59, 46, 0.4);
 }
 .how-it-work .content p {
   margin: 2.4rem 0;
+  color: #208c73;
   font-size: var(--text-h1);
+  font-weight: 700;
 }
 .how-it-work .content .icon {
   vertical-align: middle;
@@ -940,6 +971,8 @@ footer .info-wrapper a:hover::after {
 }
 .home .call-to-action .title {
   margin-bottom: 4.8rem;
+  color: #208c73;
+  font-weight: 700;
 }
 .home .call-to-action .content-wrapper {
   display: flex;
@@ -985,6 +1018,7 @@ footer .info-wrapper a:hover::after {
 }
 .about-us main ul img:not(.icon) {
   width: 100%;
+  height: 100%;
 }
 
 .about-us main ul h2 {
@@ -1043,9 +1077,6 @@ footer .info-wrapper a:hover::after {
   background: #dbf5f0;
   border-radius: 50%;
   padding: 1rem;
-}
-.about-us main ul li img:not(.icon) {
-  height: 100%;
 }
 
 /*=== Contact us page ===*/

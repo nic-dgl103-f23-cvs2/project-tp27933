@@ -23,7 +23,7 @@ $border-radius: 6px !default;
 	--text-h1: 3.2rem;
 	--text-h2: 2.8rem;
 	--text-h3: 2.4rem;
-	--text-h4: 1.8rem;
+	--text-h4: 2rem;
 	--text-body: 1.6rem;
 
 	--max-width: min(90%, 540px);
@@ -124,10 +124,8 @@ $animation_el: (
 		left: 75%,
 	),
 );
-/*--- ideally the the line of between point to point 
- is calculated dynamically by using javascript but I am not
- sure are we allowed to use javascript in this project, so
- I use the fixed container size and calculated by js first then using the calculated results.
+/*--- 
+ I use the fixed container size and calculated by js first then using the calculated line params between line to line.
 ---*/
 $animation_line: (
 	1: (
@@ -326,6 +324,7 @@ header {
 	.icon-menu {
 		display: inline-block;
 		margin-left: auto;
+		cursor: pointer;
 		.icon {
 			color: #fff;
 			font-size: 2.2rem;
@@ -339,7 +338,8 @@ header {
 		padding: $space-sm $space-lg;
 		.logo,
 		.icon-menu .icon {
-			width: 2.8rem;
+			width: 3.2rem;
+			height: 3.2rem;
 		}
 	}
 	@include pc {
@@ -350,8 +350,8 @@ header {
 			padding: 0;
 		}
 		.logo {
-			width: 3.6rem;
-			height: 3.6rem;
+			width: 4.2rem;
+			height: 4.2rem;
 		}
 		.icon-menu,
 		.modal {
@@ -374,7 +374,6 @@ header {
 	width: 100%;
 	height: 100%;
 	text-align: center;
-	transition: 0.3s ease-in-out;
 	opacity: 0;
 	&_content {
 		margin-left: auto;
@@ -392,6 +391,7 @@ header {
 	.icon-close {
 		color: #fff;
 		font-size: 3.6rem;
+		cursor: pointer;
 	}
 	.logo {
 		width: 3.2rem;
@@ -427,10 +427,13 @@ header {
 
 .hero {
 	height: 100%;
+	text-shadow: 1px 1px 2px $primary;
 	&-desktop {
 		display: none;
 	}
-
+	.title {
+		//text-shadow: 1px 1px 2px $primary;
+	}
 	img {
 		width: 100%;
 		height: 100%;
@@ -460,10 +463,16 @@ header {
 	}
 }
 .hero .slogan {
-	h1 {
+	.title {
 		padding-bottom: $space-sm;
 		font-size: var(--text-h1);
 		color: #fff;
+		span {
+			display: block;
+		}
+		&--highline {
+			color: $highline;
+		}
 	}
 	p {
 		line-height: 1.4;
@@ -474,8 +483,9 @@ header {
 		padding: $space-sm $space-md;
 		color: #fff;
 		font-size: 1.2rem;
-		border-radius: $border-radius;
 		background: $highline;
+		border-radius: $border-radius;
+		text-shadow: none;
 	}
 }
 .about-us .hero,
@@ -516,18 +526,22 @@ footer {
 	.info-wrapper,
 	.content-wrapper h2,
 	.copy-right {
-		@include flex-center;
+		display: flex;
 		flex-direction: column;
-		gap: 1.2rem;
+		justify-content: center;
 	}
 	@include pc {
 		&,
 		.footer-wrapper,
 		.info-wrapper {
 			flex-direction: row;
-			align-items: flex-start;
 			justify-content: flex-start;
 		}
+	}
+	.contact-info {
+		gap: 1rem;
+		justify-content: flex-start;
+		padding-left: $space-lg;
 	}
 	.info-wrapper nav,
 	.info-wrapper .contact-info {
@@ -542,29 +556,41 @@ footer {
 }
 
 footer .footer-wrapper {
+	gap: 2.2rem;
 	margin: 0 auto;
 	width: var(--max-width);
 	margin: 0 auto;
 	text-align: center;
+	.title {
+		align-items: center;
+		margin-top: $space-md;
+		color: #fff;
+		font-weight: 700;
+	}
 	@include pc {
 		margin-bottom: 0;
-	}
-	.title {
-		margin-top: $space-md;
-		margin-bottom: $space-sm;
-		color: #fff;
+		.title {
+			margin-top: 0;
+		}
 	}
 }
 
 footer .content-wrapper {
+	line-height: 1.8;
 	@include pc {
-		width: 40%;
+		flex: 1;
+		padding-right: $space-xl;
+		border-right: 2px solid #fff;
 		.title {
 			flex-direction: row;
 		}
 	}
 	img {
 		width: 3.2rem;
+		margin: $space-xs;
+		@include pc {
+			margin: $space-sm;
+		}
 	}
 	.social-media {
 		margin-top: $space-md;
@@ -573,18 +599,17 @@ footer .content-wrapper {
 
 footer .info-wrapper {
 	width: 100%;
+	gap: 2.2rem;
 	@include pad {
 		margin-top: $space-lg;
 		flex-direction: row;
-		.contact-info {
-			border-left: 2px solid #fff;
+		nav {
+			border-right: 2px solid #fff;
 		}
 	}
 	@include pc {
 		margin-top: 0;
-		.contact-info {
-			border-width: 0;
-		}
+		width: 50%;
 	}
 	li {
 		margin-top: $space-md;
@@ -599,8 +624,9 @@ footer .info-wrapper {
 
 .home .hero {
 	&-wrapper {
-		height: 700px;
 		max-height: 90vh;
+		min-height: 560px;
+		height: 700px;
 		@include pc {
 			height: min(95vh, 780px);
 		}
@@ -619,7 +645,7 @@ footer .info-wrapper {
 		}
 	}
 }
-
+/*----- intro -----*/
 .home .element {
 	z-index: 2;
 	position: absolute;
@@ -688,14 +714,13 @@ footer .info-wrapper {
 		width: 100%;
 	}
 }
-/*----- intro -----*/
+
 .home {
 	.intro {
 		margin-top: $space-lg;
 		padding: $space-lg 0;
 		margin: 0 auto;
 		width: var(--max-width);
-
 		text-align: center;
 		.animation,
 		& .title-desktop {
@@ -784,10 +809,6 @@ footer .info-wrapper {
 	}
 }
 
-.home .feature .feature-list {
-	flex: 1;
-	padding-bottom: $space-md;
-}
 .home .feature {
 	@include pad {
 		& > ul {
@@ -807,24 +828,24 @@ footer .info-wrapper {
 		}
 	}
 	ul li {
-		display: flex;
-		flex-direction: column;
-		font-size: var(--text-body);
 		img {
 			margin: $space-lg auto;
 			height: 18rem;
 		}
-
-		&:last-child img {
-			border-radius: calc($border-radius * 2);
-		}
-
-		p {
-			font-size: var(--text-body);
-			color: $text-content;
-		}
 	}
 }
+.home .feature .feature-list {
+	margin: 0 $space-md;
+	padding-bottom: $space-md;
+	list-style-type: square;
+	text-align: left;
+	font-size: var(--text-body);
+	color: $text-content;
+	@include pad {
+		margin: 0 $space-lg;
+	}
+}
+
 /* wave style refer from https://css-generators.com/wavy-shapes/ */
 .home .feature .box {
 	height: 200px;
@@ -870,17 +891,23 @@ footer .info-wrapper {
 		flex-direction: column;
 		align-items: flex-start;
 		justify-content: center;
-		padding: 0 $space-md;
+		padding: $space-xl;
+		@include pad {
+			padding: $space-lg;
+		}
 	}
 }
 
 .how-it-work .content {
 	.title {
-		color: rgba($color: $primary, $alpha: 0.5);
+		margin-bottom: 0;
+		color: rgba($color: $primary, $alpha: 0.4);
 	}
 	p {
 		margin: $space-md 0;
+		color: $neutral;
 		font-size: var(--text-h1);
+		font-weight: 700;
 	}
 	.icon {
 		vertical-align: middle;
@@ -932,6 +959,8 @@ footer .info-wrapper {
 	}
 	.title {
 		margin-bottom: $space-lg;
+		color: $neutral;
+		font-weight: 700;
 	}
 	.content-wrapper {
 		@include flex-center();
@@ -978,6 +1007,7 @@ footer .info-wrapper {
 	}
 	img:not(.icon) {
 		width: 100%;
+		height: 100%;
 	}
 }
 
@@ -1031,9 +1061,6 @@ footer .info-wrapper {
 			background: #dbf5f0;
 			border-radius: 50%;
 			padding: 1rem;
-		}
-		img:not(.icon) {
-			height: 100%;
 		}
 	}
 }
