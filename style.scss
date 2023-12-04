@@ -280,7 +280,11 @@ address {
 		background: $highline;
 	}
 }
-
+.title {
+	letter-spacing: 1.8px;
+	font-size: var(--text-h2);
+	font-family: "Oswald", sans-serif;
+}
 .content {
 	color: $text-content;
 	font-size: var(--text-body);
@@ -1293,7 +1297,6 @@ footer .info-wrapper {
 		padding-bottom: $space-sm;
 	}
 	table {
-		font-family: arial, sans-serif;
 		border-collapse: collapse;
 		width: 100%;
 		td,

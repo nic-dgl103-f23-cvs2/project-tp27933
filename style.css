@@ -109,6 +109,12 @@ address {
   background: #1acda3;
 }
 
+.title {
+  letter-spacing: 1.8px;
+  font-size: var(--text-h2);
+  font-family: "Oswald", sans-serif;
+}
+
 .content {
   color: #696b6a;
   font-size: var(--text-body);
@@ -1335,7 +1341,6 @@ footer .info-wrapper a:hover::after {
   padding-bottom: 1.6rem;
 }
 .contact-us .info .content table {
-  font-family: arial, sans-serif;
   border-collapse: collapse;
   width: 100%;
 }
