@@ -921,13 +921,16 @@ footer .info-wrapper {
 	text-align: left;
 	font-size: var(--text-body);
 	color: $text-content;
+	li {
+		list-style: disc;
+	}
 	@include pad {
 		margin: 0 $space-lg;
 	}
 }
 
 /* wave style refer from https://css-generators.com/wavy-shapes/ */
-.home .feature .box {
+.home .feature .wave {
 	height: 200px;
 	$mask: radial-gradient(126.18px at 50% calc(100% - 171px), #000 99%, #0000 101%) calc(50% - 120px) 0/240px 100%, radial-gradient(126.18px at 50% calc(100% + 111px), #0000 99%, #000 101%) 50% calc(100% - 60px) / 240px 100% repeat-x;
 	-webkit-mask: $mask;
@@ -992,6 +995,12 @@ footer .info-wrapper {
 	.icon {
 		vertical-align: middle;
 		margin-right: $space-xs;
+	}
+
+	address,
+	a {
+		color: $secondary;
+		font-weight: 700;
 	}
 }
 

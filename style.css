@@ -937,6 +937,9 @@ footer .info-wrapper a:hover::after {
   font-size: var(--text-body);
   color: #696b6a;
 }
+.home .feature .feature-list li {
+  list-style: disc;
+}
 @media only screen and (min-width: 768px) {
   .home .feature .feature-list {
     margin: 0 4.8rem;
@@ -944,7 +947,7 @@ footer .info-wrapper a:hover::after {
 }
 
 /* wave style refer from https://css-generators.com/wavy-shapes/ */
-.home .feature .box {
+.home .feature .wave {
   height: 200px;
   -webkit-mask: radial-gradient(126.18px at 50% calc(100% - 171px), #000 99%, rgba(0, 0, 0, 0) 101%) calc(50% - 120px) 0/240px 100%, radial-gradient(126.18px at 50% calc(100% + 111px), rgba(0, 0, 0, 0) 99%, #000 101%) 50% calc(100% - 60px)/240px 100% repeat-x;
   mask: radial-gradient(126.18px at 50% calc(100% - 171px), #000 99%, rgba(0, 0, 0, 0) 101%) calc(50% - 120px) 0/240px 100%, radial-gradient(126.18px at 50% calc(100% + 111px), rgba(0, 0, 0, 0) 99%, #000 101%) 50% calc(100% - 60px)/240px 100% repeat-x;
@@ -1016,6 +1019,11 @@ footer .info-wrapper a:hover::after {
 .how-it-work .content .icon {
   vertical-align: middle;
   margin-right: 0.4rem;
+}
+.how-it-work .content address,
+.how-it-work .content a {
+  color: #011b13;
+  font-weight: 700;
 }
 
 /*----- call-to-action -----*/
