@@ -12,11 +12,11 @@
   <h3 align="center">Lifeline Service</h3>
 
   <p align="center">
-    An redesign project 
+    A redesign project 
     <br />
     <br />
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
+    <a href="https://nic-dgl103-f23-cvs2.github.io/project-tp27933/">View Demo</a>
     
   </p>
 </div>
@@ -28,7 +28,7 @@
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
 - Redesign a new and simple website for an existing small local business: <a href="http://www.comoxvalleylifeline.com/">http://www.comoxvalleylifeline.com/</a>
-- The page layouts are coded mobile-first and adjust for desktop screens using media queries.
+- The page layouts are coded mobile-first and adjusted for desktop screens using media queries.
 
 This is a fictional website that was designed and coded as an educational exercise. It is not intended to be seen outside of the class environment. None of the content and images were approved by the business owner.
 
@@ -79,26 +79,10 @@ This is a fictional website that was designed and coded as an educational exerci
 - Typography  
   title : Oswald  
   body: Robot
-- Colors
-<div style="padding-left: 32px;display:flex;gap:16px;">
-<div>
-  <div>primary </div>
-  <span style="display: inline-block;width:50px;height:40px;background: #033b2e;"></span>
-  <div>#033b2e</div>
-</div>
-
-<div>
-  <div>neutral </div>
-  <span style="display: inline-block;width:50px;height:40px;background: #033b2e;"></span>
-  <div >#208c73</div> 
-</div>
-
-<div>
-  <div>highline</div>
-  <span style="display: inline-block;width:50px;height:40px;background: #1acda3;"></span>
-  <div >#1acda3</div> 
-</div>
-</div>
+- Colors  
+![#033b2e](https://placehold.co/35x35/033b2e/033b2e.png) `primary: #033b2e`
+![#033b2e](https://placehold.co/35x35/208c73/208c73.png) `neutral: #208c73`
+![#033b2e](https://placehold.co/35x35/1acda3/1acda3.png) `highline: #1acda3`
 
 ### Built With
 
