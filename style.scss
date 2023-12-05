@@ -875,8 +875,10 @@ footer .info-wrapper {
 		overflow-x: auto;
 		gap: 2rem;
 		& > li {
-			width: 100%;
 			flex-grow: 1;
+			display: flex;
+			flex-direction: column;
+			width: 100%;
 			min-width: 90%;
 			padding: $space-md;
 			background: #fff;
@@ -884,8 +886,17 @@ footer .info-wrapper {
 		}
 	}
 	.button-more {
+		margin: 0 auto;
+		padding: $space-sm;
+		width: fit-content;
 		color: $highline;
 		text-decoration: underline;
+		border-radius: $border-radius;
+		&:hover {
+			color: #fff;
+			background: $highline;
+			text-decoration: none;
+		}
 	}
 }
 
@@ -915,6 +926,7 @@ footer .info-wrapper {
 	}
 }
 .home .feature .feature-list {
+	flex: 1;
 	margin: 0 $space-md;
 	padding-bottom: $space-md;
 	list-style-type: square;

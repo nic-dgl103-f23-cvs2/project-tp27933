@@ -895,16 +895,28 @@ footer .info-wrapper a:hover::after {
   gap: 2rem;
 }
 .home .feature > ul > li {
-  width: 100%;
   flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
   min-width: 90%;
   padding: 2.4rem;
   background: #fff;
   border-radius: 6px;
 }
 .home .feature .button-more {
+  margin: 0 auto;
+  padding: 1.6rem;
+  width: -moz-fit-content;
+  width: fit-content;
   color: #1acda3;
   text-decoration: underline;
+  border-radius: 6px;
+}
+.home .feature .button-more:hover {
+  color: #fff;
+  background: #1acda3;
+  text-decoration: none;
 }
 
 @media only screen and (min-width: 768px) {
@@ -930,6 +942,7 @@ footer .info-wrapper a:hover::after {
 }
 
 .home .feature .feature-list {
+  flex: 1;
   margin: 0 2.4rem;
   padding-bottom: 2.4rem;
   list-style-type: square;
