@@ -79,10 +79,26 @@ This is a fictional website that was designed and coded as an educational exerci
 - Typography  
   title : Oswald  
   body: Robot
-- Colors primary: #033b2e  
- neutral: #208c73  
- highline: #1acda3
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+- Colors
+<div style="padding-left: 32px;display:flex;gap:16px;">
+<div>
+  <div>primary </div>
+  <span style="display: inline-block;width:50px;height:40px;background: #033b2e;"></span>
+  <div>#033b2e</div>
+</div>
+
+<div>
+  <div>neutral </div>
+  <span style="display: inline-block;width:50px;height:40px;background: #033b2e;"></span>
+  <div >#208c73</div> 
+</div>
+
+<div>
+  <div>highline</div>
+  <span style="display: inline-block;width:50px;height:40px;background: #1acda3;"></span>
+  <div >#1acda3</div> 
+</div>
+</div>
 
 ### Built With
 
