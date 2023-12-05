@@ -12,7 +12,7 @@
   <h3 align="center">Lifeline Service</h3>
 
   <p align="center">
-    An redesign project 
+    A redesign project 
     <br />
     <br />
     <br />
@@ -28,7 +28,7 @@
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
 - Redesign a new and simple website for an existing small local business: <a href="http://www.comoxvalleylifeline.com/">http://www.comoxvalleylifeline.com/</a>
-- The page layouts are coded mobile-first and adjust for desktop screens using media queries.
+- The page layouts are coded mobile-first and adjusted for desktop screens using media queries.
 
 This is a fictional website that was designed and coded as an educational exercise. It is not intended to be seen outside of the class environment. None of the content and images were approved by the business owner.
 
